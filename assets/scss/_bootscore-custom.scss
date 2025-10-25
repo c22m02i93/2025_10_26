@@ -8,12 +8,339 @@
 
 /*-----------------------------------------------------------------------------
 
-  ATTENTION! This is the parent-theme's file. Your work will be lost by the 
+  ATTENTION! This is the parent-theme's file. Your work will be lost by the
   next update!
 
   Wouldn't you prefer to use one of our child themes and be update-safe?
 
-  Bootscore Child: 
+  Bootscore Child:
   https://github.com/bootscore/bootscore-child/releases/latest/download/bootscore-child.zip
 
 -----------------------------------------------------------------------------*/
+body {
+  color: #5b4125;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #5b4125;
+}
+
+a {
+  color: #5b4125;
+}
+
+a:hover,
+a:focus,
+a:focus-visible,
+a:active {
+  color: #3c2b18;
+}
+
+.hram-header {
+  background: #f8edda;
+  color: #5b4125;
+  font-family: "Montserrat", "Arial", sans-serif;
+
+  &__blessing {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem 0.35rem;
+    color: inherit;
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &__mobile-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    padding: 0.75rem 0 1rem;
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &__mobile-logo {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__mobile-logo img {
+    height: 54px;
+    width: auto;
+  }
+
+  &__toggler {
+    background: transparent;
+    border: 0;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0.25rem;
+  }
+
+  &__toggler-line {
+    width: 30px;
+    height: 3px;
+    background: #5b4125;
+    border-radius: 3px;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  &__toggler:focus-visible {
+    outline: 2px solid rgba(91, 65, 37, 0.4);
+    outline-offset: 4px;
+  }
+
+  &__main {
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.45rem 0 0.2rem;
+    gap: 2rem;
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &__identity {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__identity-link {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  &__identity-link img {
+    height: 92px;
+    width: auto;
+  }
+
+  &__identity-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    max-width: 360px;
+  }
+
+  &__identity-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__identity-subtitle {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  &__contacts {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+	margin-top: -66px;
+  }
+
+  &__contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #fff8ee;
+    color: #5b4125;
+    font-size: 1.05rem;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      background: #5b4125;
+      color: #f8edda;
+    }
+
+    &--phone {
+      width: auto;
+      border-radius: 999px;
+      padding: 0.45rem 0.9rem;
+      gap: 0.45rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    &--phone i {
+      font-size: 1rem;
+    }
+
+    span {
+      white-space: nowrap;
+    }
+  }
+
+  &__divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 0.3rem 0 1.25rem;
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &__divider-line {
+    flex: 1;
+    height: 2px;
+    background: #d9b97a;
+	margin-top: -36px;
+  }
+
+  &__divider-logo {
+    height: 56px;
+    width: auto;
+  }
+
+  &__menu {
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &__menu-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.75rem;
+    list-style: none;
+    width: 100%;
+    padding: 0 0 1.75rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+
+  &__menu-list > li > a {
+    color: #5b4125;
+    text-decoration: none;
+    font-size: 0.8rem;
+    position: relative;
+    //padding-bottom: 0.25rem;
+  }
+
+  &__menu-list > li > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #d9b97a;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &__menu-list > li > a:hover::after,
+  &__menu-list > li > a:focus-visible::after,
+  &__menu-list > li.current-menu-item > a::after {
+    transform: scaleX(1);
+  }
+
+  &__offcanvas-contacts {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.hram-header .offcanvas {
+  background: #f8edda;
+  color: #5b4125;
+}
+
+.hram-header .offcanvas-title {
+  color: inherit;
+  font-weight: 600;
+}
+
+.hram-header .offcanvas .btn-close {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(28%) sepia(23%) saturate(610%) hue-rotate(352deg) brightness(96%) contrast(88%);
+}
+
+.hram-header .offcanvas .navbar-nav .nav-link {
+  color: #5b4125;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hram-header .offcanvas .navbar-nav .nav-link:hover,
+.hram-header .offcanvas .navbar-nav .nav-link:focus {
+  color: #3c2b18;
+}
+
+@media (max-width: 991.98px) {
+  .hram-header {
+    &__blessing {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+    }
+
+    &__identity-link img {
+      height: 82px;
+    }
+
+    &__identity-title {
+      font-size: 1rem;
+    }
+
+    &__divider-logo {
+      height: 44px;
+    }
+
+    &__main {
+      padding: 0.75rem 0 1rem;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hram-header {
+    &__mobile-logo img {
+      height: 44px;
+    }
+
+    &__toggler-line {
+      width: 26px;
+    }
+
+    &__divider-logo {
+      height: 36px;
+    }
+  }
+}

@@ -37,9 +37,64 @@ function bootscore_scripts() {
     wp_enqueue_style('fontawesome', get_template_directory_uri() . '/assets/fontawesome/css/all.min.css', array(), $modificated_fontawesomeCss);
   }
 
+	  // Vendor libraries
+  wp_enqueue_style(
+    'swiper',
+    'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css',
+    array(),
+    '10.3.1'
+  );
+
+  wp_enqueue_style(
+    'owl-carousel',
+    'https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css',
+    array(),
+    '2.3.4'
+  );
+
+  wp_enqueue_style(
+    'owl-theme-default',
+    'https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.theme.default.min.css',
+    array('owl-carousel'),
+    '2.3.4'
+  );
+
+  wp_enqueue_style(
+    'aos',
+    'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css',
+    array(),
+    '2.3.4'
+  );
+	
   // Bootstrap JS
   wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/js/lib/bootstrap.bundle.min.js', array(), $modificated_bootstrapJs, true);
 
+	wp_enqueue_script(
+    'swiper',
+    'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js',
+    array(),
+    '10.3.1',
+    true
+  );
+
+  wp_enqueue_script(
+    'owl-carousel',
+    'https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js',
+    array('jquery'),
+    '2.3.4',
+    true
+  );
+
+  wp_enqueue_script(
+    'aos',
+    'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js',
+    array(),
+    '2.3.4',
+    true
+  );
+
+  wp_add_inline_script('aos', 'document.addEventListener("DOMContentLoaded", function() { if (typeof AOS !== "undefined") { AOS.init(); } });');
+	
   // Theme JS
   wp_enqueue_script('bootscore-script', get_template_directory_uri() . '/assets/js/theme.js', array('jquery'), $modificated_themeJs, true);
 

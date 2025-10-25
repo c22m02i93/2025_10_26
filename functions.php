@@ -52,7 +52,7 @@ require_once('inc/template-functions.php');      // Functions which enhance the 
 require_once('inc/widgets.php');                 // Register widget area and disables Gutenberg in widgets
 require_once('inc/deprecated.php');              // Fallback functions being dropped in v6
 require_once('inc/tinymce-editor.php');          // Fix body margin and font-family in backend if classic editor is used
-
+require_once('inc/custom-post-types.php');       // Custom post types and meta fields
 // Blocks
 // Patterns
 require_once('inc/blocks/patterns.php');  // Register pattern category and script to hide wp-block classes
@@ -76,6 +76,40 @@ require_once('inc/blocks/block-table.php');   // Table block
 if (apply_filters('bootscore/disable/unsupported/blocks', false)) {
   require_once('inc/blocks/disable-unsupported-blocks.php');
 }
+
+
+/**
+ * Disable theme updates
+ */
+function hram_disable_theme_updates($value) {
+  if (!is_object($value) || !isset($value->response) || !is_array($value->response)) {
+    return $value;
+  }
+
+  $stylesheet = get_stylesheet();
+
+  if (isset($value->response[$stylesheet])) {
+    unset($value->response[$stylesheet]);
+  }
+
+  return $value;
+}
+add_filter('site_transient_update_themes', 'hram_disable_theme_updates');
+add_filter('auto_update_theme', '__return_false');
+
+
+/**
+ * Use the classic editor for posts
+ */
+function hram_disable_block_editor_for_posts($use_block_editor, $post_type) {
+  if ('post' === $post_type) {
+    return false;
+  }
+
+  return $use_block_editor;
+}
+add_filter('use_block_editor_for_post_type', 'hram_disable_block_editor_for_posts', 10, 2);
+
 
 
 /**
