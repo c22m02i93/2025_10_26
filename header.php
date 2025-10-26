@@ -31,7 +31,7 @@ defined('ABSPATH') || exit;
 
     <?php if (!$is_home_header) : ?>
       <div class="hram-header__blessing">
-        <span><?= esc_html__('По благословению Высокопреосвященнейшего Лонгина, митрополита Симбирского и Новоспасского', 'bootscore'); ?></span>
+        <span><?= esc_html__('По благословению Высокопреосвященнейшего Лонгина митрополита Симбирского и Новоспасского', 'bootscore'); ?></span>
       </div>
     <?php endif; ?>
 
