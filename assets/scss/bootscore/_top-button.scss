@@ -16,6 +16,7 @@ To top button
   opacity: 0;
   visibility: hidden;
   transition: visibility 0s linear .3s, opacity .3s;
+  min-width: 0;
 
   &.visible {
     opacity: 1;
@@ -25,7 +26,13 @@ To top button
 
 @media (max-width: 767.98px) {
   .top-button {
-    right: clamp(0.75rem, 6vw, 1.5rem);
-    bottom: clamp(1.25rem, 7vw, 1.75rem);
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: clamp(3.75rem, 18vw, 4.375rem);
+    height: clamp(3.75rem, 18vw, 4.375rem);
+    bottom: clamp(1.1rem, 6vw, 1.6rem);
+    border-radius: 999px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   }
 }
