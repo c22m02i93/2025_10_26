@@ -1305,15 +1305,15 @@ function hram_service_schedule_shortcode($atts) {
                     <?php endforeach; ?>
                 </div>
                 <div class="service-schedule__nav">
-                    <button type="button" class="service-schedule__nav-button service-schedule__nav-button--prev" aria-label="<?php esc_attr_e('Предыдущие богослужения', 'bootscore'); ?>">&lt;</button>
-                    <button type="button" class="service-schedule__nav-button service-schedule__nav-button--next" aria-label="<?php esc_attr_e('Следующие богослужения', 'bootscore'); ?>">&gt;</button>
+                    <div class="service-schedule__nav-buttons">
+                        <button type="button" class="service-schedule__nav-button service-schedule__nav-button--prev" aria-label="<?php esc_attr_e('Предыдущие богослужения', 'bootscore'); ?>">&lt;</button>
+                        <button type="button" class="service-schedule__nav-button service-schedule__nav-button--next" aria-label="<?php esc_attr_e('Следующие богослужения', 'bootscore'); ?>">&gt;</button>
+                    </div>
+                    <a class="service-schedule__more" href="https://nevsky-simbirsk.ru/расписание/">
+                        <span><?php esc_html_e('Смотреть подробнее', 'bootscore'); ?></span>
+                        <span class="service-schedule__more-icon" aria-hidden="true">→</span>
+                    </a>
                 </div>
-            </div>
-            <div class="service-schedule__footer">
-                <a class="service-schedule__more" href="https://nevsky-simbirsk.ru/расписание/">
-                    <span><?php esc_html_e('Смотреть подробнее', 'bootscore'); ?></span>
-                    <span class="service-schedule__more-icon" aria-hidden="true">→</span>
-                </a>
             </div>
         </div>
     </section>

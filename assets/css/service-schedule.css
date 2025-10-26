@@ -22,7 +22,7 @@
 .service-schedule__swiper {
   position: relative;
   overflow: hidden;
-  padding-bottom: clamp(2.5rem, 4vw, 3.25rem);
+  padding-bottom: 0;
 }
 
 .service-schedule__swiper .swiper-wrapper {
@@ -141,13 +141,18 @@
 }
 
 .service-schedule__nav {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  margin-top: clamp(1.25rem, 4vw, 2rem);
+}
+
+.service-schedule__nav-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .service-schedule__nav-button {
@@ -179,12 +184,6 @@
   opacity: 0.4;
   cursor: not-allowed;
   transform: none;
-}
-
-.service-schedule__footer {
-  margin-top: clamp(1.75rem, 5vw, 2.5rem);
-  display: flex;
-  justify-content: center;
 }
 
 .service-schedule__more {
@@ -223,27 +222,29 @@
   border-color: #a98147;
 }
 
-@media (max-width: 1023px) {
-  .service-schedule__swiper {
-    padding-bottom: 4rem;
+@media (min-width: 1024px) {
+  .service-schedule__nav {
+    justify-content: flex-end;
   }
 
+  .service-schedule__nav-buttons {
+    margin-right: clamp(1rem, 3vw, 2.25rem);
+  }
+
+  .service-schedule__more {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1023px) {
   .service-card {
     border-radius: 14px;
-  }
-
-  .service-schedule__footer {
-    margin-top: clamp(1.5rem, 6vw, 2.25rem);
   }
 }
 
 @media (max-width: 767px) {
   .service-schedule__inner {
     padding: 0 clamp(0.75rem, 4vw, 1.25rem);
-  }
-
-  .service-schedule__swiper {
-    padding-bottom: 4.5rem;
   }
 
   .service-card {
@@ -277,7 +278,19 @@
   }
 
   .service-schedule__nav {
-    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: clamp(0.65rem, 5vw, 1rem);
+    margin-top: clamp(1rem, 5vw, 1.5rem);
+  }
+
+  .service-schedule__nav-buttons {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .service-schedule__more {
+    justify-content: center;
   }
 }
 
