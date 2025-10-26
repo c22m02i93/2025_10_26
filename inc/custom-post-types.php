@@ -265,66 +265,7 @@ function hram_home_slider_admin_assets($hook_suffix) {
     );
 }
 
-add_action('init', 'bootscore_register_service_post_type');
-/**
- * Registers the "Богослужение" custom post type.
- *
- * @return void
- */
-function bootscore_register_service_post_type() {
-    $labels = [
-        'name'                  => __('Богослужения', 'bootscore'),
-        'singular_name'         => __('Богослужение', 'bootscore'),
-        'menu_name'             => __('Богослужения', 'bootscore'),
-        'name_admin_bar'        => __('Богослужение', 'bootscore'),
-        'add_new'               => __('Добавить новое', 'bootscore'),
-        'add_new_item'          => __('Добавить богослужение', 'bootscore'),
-        'new_item'              => __('Новое богослужение', 'bootscore'),
-        'edit_item'             => __('Редактировать богослужение', 'bootscore'),
-        'view_item'             => __('Просмотреть богослужение', 'bootscore'),
-        'all_items'             => __('Все богослужения', 'bootscore'),
-        'search_items'          => __('Искать богослужения', 'bootscore'),
-        'parent_item_colon'     => __('Родительское богослужение:', 'bootscore'),
-        'not_found'             => __('Богослужений не найдено.', 'bootscore'),
-        'not_found_in_trash'    => __('В корзине богослужений не найдено.', 'bootscore'),
-        'featured_image'        => __('Изображение богослужения', 'bootscore'),
-        'set_featured_image'    => __('Задать изображение богослужения', 'bootscore'),
-        'remove_featured_image' => __('Удалить изображение богослужения', 'bootscore'),
-        'use_featured_image'    => __('Использовать как изображение богослужения', 'bootscore'),
-    ];
 
-    $args = [
-        'labels'             => $labels,
-        'public'             => true,
-        'has_archive'        => true,
-        'show_in_rest'       => true,
-        'rewrite'            => [
-            'slug'       => 'bogosluzhenie',
-            'with_front' => false,
-        ],
-        'menu_icon'          => 'dashicons-groups',
-        'supports'           => ['title', 'editor', 'excerpt', 'thumbnail'],
-    ];
-
-    register_post_type('service', $args);
-}
-
-add_filter('use_block_editor_for_post_type', 'bootscore_disable_service_block_editor', 10, 2);
-/**
- * Forces the classic editor for the богослужение post type.
- *
- * @param bool   $use_block_editor Whether the block editor is enabled.
- * @param string $post_type        Current post type.
- *
- * @return bool
- */
-function bootscore_disable_service_block_editor($use_block_editor, $post_type) {
-    if ('service' === $post_type) {
-        return false;
-    }
-
-    return $use_block_editor;
-}
 
 add_action('init', 'bootscore_register_clergy_post_type');
 /**
