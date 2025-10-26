@@ -17,6 +17,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 clamp(1rem, 5vw, 2rem);
+  position: relative;
 }
 
 .service-schedule__swiper {
@@ -141,18 +142,25 @@
 }
 
 .service-schedule__nav {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - clamp(2rem, 6vw, 4rem));
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: clamp(0.75rem, 2vw, 1.25rem);
-  margin-top: clamp(1.25rem, 4vw, 2rem);
+  justify-content: space-between;
+  gap: clamp(1rem, 3vw, 1.75rem);
+  pointer-events: none;
+  padding: 0 clamp(0.5rem, 2vw, 1.5rem);
+  z-index: 5;
 }
 
 .service-schedule__nav-buttons {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
+  pointer-events: auto;
 }
 
 .service-schedule__nav-button {
@@ -196,6 +204,7 @@
   font-size: 0.95rem;
   letter-spacing: 0.04em;
   transition: color 0.25s ease, transform 0.25s ease;
+  pointer-events: auto;
 }
 
 .service-schedule__more:hover,
@@ -223,14 +232,6 @@
 }
 
 @media (min-width: 1024px) {
-  .service-schedule__nav {
-    justify-content: flex-end;
-  }
-
-  .service-schedule__nav-buttons {
-    margin-right: clamp(1rem, 3vw, 2.25rem);
-  }
-
   .service-schedule__more {
     white-space: nowrap;
   }
@@ -278,19 +279,22 @@
   }
 
   .service-schedule__nav {
-    flex-direction: column;
-    align-items: stretch;
-    gap: clamp(0.65rem, 5vw, 1rem);
-    margin-top: clamp(1rem, 5vw, 1.5rem);
+    position: static;
+    transform: none;
+    width: 100%;
+    justify-content: flex-end;
+    pointer-events: auto;
+    margin-top: clamp(0.5rem, 4vw, 0.75rem);
+    padding: 0;
   }
 
   .service-schedule__nav-buttons {
-    justify-content: center;
-    width: 100%;
+    display: none;
   }
 
   .service-schedule__more {
-    justify-content: center;
+    justify-content: flex-end;
+    margin-top: 0;
   }
 }
 
