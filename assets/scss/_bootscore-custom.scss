@@ -406,79 +406,151 @@ a:active {
   }
 }
 
+
 .hram-header--home {
-  padding-top: clamp(1.5rem, 5vw, 3.25rem);
+  padding-top: 0;
 
   .hram-header__main {
+    display: block;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .hram-header__main-inner {
     position: relative;
     z-index: 6;
-    background: rgba(20, 17, 14, 0.5);
-    backdrop-filter: blur(28px);
-    border-radius: clamp(18px, 4vw, 26px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: clamp(1rem, 4vw, 2.5rem);
+    width: min(100%, 1180px);
+    margin: 0 auto;
+    padding: clamp(1rem, 3vw, 1.65rem) clamp(1.25rem, 4vw, 2.75rem);
+    background: rgba(20, 17, 14, 0.58);
+    backdrop-filter: blur(22px);
+    border-radius: clamp(18px, 4vw, 24px);
     border: 1px solid rgba(255, 255, 255, 0.16);
-    box-shadow: 0 32px 70px rgba(6, 4, 2, 0.35);
+    box-shadow: 0 22px 52px rgba(6, 4, 2, 0.32);
     color: #f2f2f2;
-    row-gap: clamp(1rem, 3vw, 1.75rem);
   }
 
   @media (min-width: 992px) {
-    .hram-header__main {
-      position: absolute;
-      top: clamp(1.5rem, 4vw, 3.25rem);
+    .hram-header__main-inner {
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: min(100%, 1440px);
-      padding: clamp(1.35rem, 3vw, 2.1rem) clamp(2rem, 5vw, 3.4rem) clamp(1.1rem, 2.6vw, 1.6rem);
+      padding: clamp(1.1rem, 2.8vw, 1.8rem) clamp(1.75rem, 4.5vw, 3rem);
     }
 
     .hram-header__identity {
-      align-items: center;
-      gap: clamp(1rem, 2.5vw, 1.75rem);
+      align-items: flex-start;
+      gap: clamp(0.75rem, 2vw, 1.25rem);
     }
 
     .hram-header__identity-link img {
-      height: clamp(82px, 10vw, 104px);
-    }
-
-    .hram-header__nav {
-      justify-content: flex-start;
-      padding-inline: clamp(1rem, 3.5vw, 2.5rem);
-    }
-
-    .hram-header__contacts--home {
-      align-items: flex-end;
-      text-align: right;
+      height: clamp(72px, 8vw, 92px);
     }
   }
 
   @media (max-width: 991.98px) {
-    .hram-header__main {
-      margin-top: 0;
-      padding: clamp(1rem, 4.8vw, 1.6rem) clamp(1rem, 6vw, 2rem) clamp(0.85rem, 4vw, 1.3rem);
-      border-radius: 20px;
-      box-shadow: 0 26px 52px rgba(6, 4, 2, 0.28);
+    .hram-header__main-inner {
+      flex-direction: column;
+      align-items: stretch;
+      text-align: center;
+      gap: clamp(1rem, 6vw, 1.75rem);
+      padding: clamp(1rem, 5vw, 1.5rem) clamp(1rem, 6vw, 1.75rem);
     }
 
     .hram-header__identity {
-      flex-direction: row;
       align-items: center;
-      gap: clamp(0.85rem, 5vw, 1.4rem);
+      text-align: center;
+      gap: clamp(0.75rem, 5vw, 1.25rem);
     }
 
     .hram-header__identity-link img {
-      height: clamp(72px, 24vw, 96px);
-    }
-
-    .hram-header__nav {
-      display: none;
+      height: clamp(64px, 22vw, 88px);
     }
 
     .hram-header__contacts--home {
-      width: 100%;
-      align-items: flex-start;
-      text-align: left;
+      justify-content: center;
     }
   }
+}
+
+.hram-header--home .hram-header__identity {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(0.65rem, 1.6vw, 1rem);
+}
+
+.hram-header--home .hram-header__identity-text {
+  order: 1;
+  width: 100%;
+  max-width: none;
+  color: inherit;
+  gap: clamp(0.35rem, 1.4vw, 0.65rem);
+}
+
+.hram-header--home .hram-header__identity-blessing {
+  font-size: clamp(0.72rem, 1.2vw, 0.82rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(237, 237, 237, 0.9);
+}
+
+.hram-header--home .hram-header__identity-heading {
+  font-size: clamp(1.1rem, 2.6vw, 1.85rem);
+  letter-spacing: 0.1em;
+  line-height: 1.18;
+}
+
+.hram-header--home .hram-header__identity-line {
+  font-size: clamp(0.8rem, 1.8vw, 1.05rem);
+  letter-spacing: 0.08em;
+}
+
+.hram-header--home .hram-header__identity-link {
+  order: 2;
+}
+
+.hram-header--home .hram-header__identity-link img {
+  height: clamp(68px, 11vw, 94px);
+}
+
+.hram-header--home .hram-header__contacts--home {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.6rem, 1.8vw, 1rem);
+}
+
+.hram-header--home .hram-header__contacts--home .hram-header__contact {
+  color: inherit;
+  font-size: 1.05rem;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.hram-header--home .hram-header__contacts--home .hram-header__contact i {
+  font-size: 1.15rem;
+}
+
+.hram-header--home .hram-header__contacts--home .hram-header__contact:hover,
+.hram-header--home .hram-header__contacts--home .hram-header__contact:focus-visible {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+}
+
+.hram-header--home .hram-header__menu--home {
+  margin-top: clamp(0.75rem, 3vw, 1.5rem);
+}
+
+.hram-header--home .hram-header__menu--home .hram-header__menu-list {
+  justify-content: center;
 }
 
 .hram-button {
