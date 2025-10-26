@@ -61,8 +61,8 @@ defined('ABSPATH') || exit;
         <?php get_template_part('template-parts/logo', null, array('class' => 'hram-header__identity-link')); ?>
 
         <div class="hram-header__identity-text">
-          <span class="hram-header__identity-line hram-header__identity-line--main logo-title"><?= esc_html__('Храм во имя Святого Преподобного Великого Князя Александра Невского', 'bootscore'); ?></span>
-          <span class="hram-header__identity-line hram-header__identity-line--accent"><?= esc_html__('Симбирская Епархия Русской Православной Церкви', 'bootscore'); ?></span>
+          <span class="hram-header__identity-line hram-header__identity-line--main logo-title"><?= esc_html__('ХРАМ ВО ИМЯ СВЯТОГО БЛАГОВЕРНОГО ВЕЛИКОГО КНЯЗЯ АЛЕКСАНДРА НЕВСКОГО', 'bootscore'); ?></span>
+          <span class="hram-header__identity-line hram-header__identity-line--accent"><?= esc_html__('СИМБИРСКАЯ ЕПАРХИЯ РУССКОЙ ПРАВОСЛАВНОЙ ЦЕРКВИ', 'bootscore'); ?></span>
         </div>
       </div>
 
