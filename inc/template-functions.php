@@ -68,6 +68,13 @@ function hram_get_social_links_items() {
       'target' => '_blank',
       'rel'    => 'noopener noreferrer',
     ],
+      [
+      'url'    => 'tel:+78422000000',
+      'label'  => __('Позвонить', 'bootscore'),
+      'icon'   => 'fa-solid fa-phone',
+      'target' => '',
+      'rel'    => '',
+    ],
     [
       'url'    => 'mailto:info@nevsky-simbirsk.ru',
       'label'  => __('Email', 'bootscore'),
