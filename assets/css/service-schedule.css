@@ -249,7 +249,7 @@
   }
 
   .service-schedule__nav {
-    bottom: 0.25rem;
+    display: none;
   }
 }
 
