@@ -48,16 +48,8 @@ defined('ABSPATH') || exit;
         </a>
       </div>
 
-      <div class="hram-header__contacts">
-        <a href="https://vk.com" class="hram-header__contact" target="_blank" rel="noopener" aria-label="ВКонтакте">
-          <i class="fa-brands fa-vk" aria-hidden="true"></i>
-        </a>
-        <a href="https://t.me" class="hram-header__contact" target="_blank" rel="noopener" aria-label="Telegram">
-          <i class="fa-brands fa-telegram-plane" aria-hidden="true"></i>
-        </a>
-        <a href="mailto:info@nevsky-simbirsk.ru" class="hram-header__contact" aria-label="Email">
-          <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-        </a>
+      <div class="hram-header__contacts hram-social-links hram-social-links--end">
+        <?php hram_social_links(array('container' => false)); ?>
         <a href="tel:+78422000000" class="hram-header__contact hram-header__contact--phone" aria-label="Позвонить">
           <i class="fa-solid fa-phone" aria-hidden="true"></i>
           <span>+7 (8422) 00-00-00</span>
@@ -91,16 +83,8 @@ defined('ABSPATH') || exit;
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
       </div>
       <div class="offcanvas-body">
-        <div class="hram-header__offcanvas-contacts d-lg-none">
-          <a href="https://vk.com" class="hram-header__contact" target="_blank" rel="noopener">
-            <i class="fa-brands fa-vk" aria-hidden="true"></i>
-          </a>
-          <a href="https://t.me" class="hram-header__contact" target="_blank" rel="noopener">
-            <i class="fa-brands fa-telegram-plane" aria-hidden="true"></i>
-          </a>
-          <a href="mailto:info@nevsky-simbirsk.ru" class="hram-header__contact">
-            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-          </a>
+        <div class="hram-header__offcanvas-contacts d-lg-none hram-social-links">
+          <?php hram_social_links(array('container' => false)); ?>
           <a href="tel:+78422000000" class="hram-header__contact hram-header__contact--phone">
             <i class="fa-solid fa-phone" aria-hidden="true"></i>
             <span>+7 (8422) 00-00-00</span>
