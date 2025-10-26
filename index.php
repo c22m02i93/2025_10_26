@@ -179,6 +179,18 @@ $slider_has_loop = count($slider_slides) > 1;
               </div>
             </section>
           <?php endif; ?>
+
+          <?php
+          $service_schedule_block = hram_service_schedule_shortcode([
+            'limit'    => 5,
+            'title'    => __('Расписание богослужений', 'bootscore'),
+            'subtitle' => '',
+          ]);
+
+          if (!empty($service_schedule_block)) {
+            echo $service_schedule_block; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+          }
+          ?>
         <?php else : ?>
           <section class="hram-hero">
             <div class="hram-hero__inner container">
