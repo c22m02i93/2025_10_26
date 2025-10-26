@@ -277,6 +277,136 @@ a:active {
   }
 }
 
+.hram-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2.25rem;
+  border-radius: 999px;
+  background: #d9b07a;
+  color: #2f1d0e;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  min-width: 11rem;
+  gap: 0.5rem;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    background: #c79f66;
+    color: #23160a;
+    border-color: #c79f66;
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(201, 150, 90, 0.35);
+  }
+
+  &--icon {
+    min-width: 0;
+    width: 3.25rem;
+    height: 3.25rem;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 1.05rem;
+  }
+}
+
+.hram-hero {
+  position: relative;
+  padding: clamp(3rem, 5vw, 5rem) 0;
+  background: #f8edda;
+  overflow: hidden;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  &__media {
+    position: relative;
+  }
+
+  &__figure {
+    margin: 0;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 24px;
+    box-shadow: 0 20px 45px rgba(91, 65, 37, 0.22);
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__title {
+    font-size: clamp(2rem, 3.2vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  &__description {
+    font-size: 1.05rem;
+    margin: 0;
+    color: #3c2b18;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .hram-hero {
+    &__inner {
+      grid-template-columns: 1fr;
+    }
+
+    &__content {
+      order: -1;
+      text-align: center;
+      align-items: center;
+    }
+
+    &__actions {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hram-button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hram-hero {
+    padding: 2.5rem 0;
+
+    &__image {
+      border-radius: 18px;
+    }
+  }
+}
+
 .hram-social-links {
   display: flex;
   align-items: center;

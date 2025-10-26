@@ -159,7 +159,7 @@ endif;
  */
 if (!function_exists('bootscore_comment_button')) :
   function bootscore_comment_button($args) {
-    $args['class_submit'] = 'btn btn-outline-primary'; // since WP 4.1
+    $args['class_submit'] = 'hram-button'; // since WP 4.1
 
     return $args;
   }
