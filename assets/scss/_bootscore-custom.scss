@@ -82,9 +82,7 @@ a:active {
     align-items: center;
     justify-content: space-between;
     gap: 1.25rem;
-    padding: 0.75rem 0 1rem;
-    max-width: 1320px;
-    margin: 0 auto;
+    padding: 0.75rem clamp(0.75rem, 3vw, 2.5rem) 1rem;
     width: 100%;
   }
 
@@ -135,8 +133,6 @@ a:active {
     justify-content: space-between;
     padding: clamp(0.85rem, 2.4vw, 1.5rem) clamp(0.75rem, 3vw, 2.25rem) clamp(0.4rem, 1.2vw, 0.9rem);
     gap: clamp(1.5rem, 4vw, 3rem);
-    max-width: 1320px;
-    margin: 0 auto;
     width: 100%;
     transition: box-shadow 0.35s ease, background-color 0.35s ease;
   }
@@ -421,31 +417,30 @@ a:active {
     position: relative;
     z-index: 6;
     display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: clamp(1rem, 4vw, 2.5rem);
-    width: min(100%, 1180px);
-    margin: 0 auto;
-    padding: clamp(1rem, 3vw, 1.65rem) clamp(1.25rem, 4vw, 2.75rem);
+    flex-direction: column;
+    gap: clamp(1.25rem, 4vw, 2.5rem);
+    width: 100%;
+    margin: 0;
+    padding: clamp(1rem, 3vw, 1.65rem) clamp(1.25rem, 4vw, 3.25rem);
     background: rgba(20, 17, 14, 0.58);
     backdrop-filter: blur(22px);
-    border-radius: clamp(18px, 4vw, 24px);
+    border-radius: 0;
     border: 1px solid rgba(255, 255, 255, 0.16);
     box-shadow: 0 22px 52px rgba(6, 4, 2, 0.32);
     color: #f2f2f2;
   }
 
+  .hram-header__top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: clamp(1.1rem, 4vw, 3rem);
+    width: 100%;
+  }
+
   @media (min-width: 992px) {
     .hram-header__main-inner {
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: clamp(1.1rem, 2.8vw, 1.8rem) clamp(1.75rem, 4.5vw, 3rem);
-    }
-
-    .hram-header__identity {
-      align-items: flex-start;
-      gap: clamp(0.75rem, 2vw, 1.25rem);
+      padding: clamp(1.1rem, 2.8vw, 1.8rem) clamp(1.85rem, 4.5vw, 3.5rem);
     }
 
     .hram-header__identity-link img {
@@ -455,11 +450,14 @@ a:active {
 
   @media (max-width: 991.98px) {
     .hram-header__main-inner {
-      flex-direction: column;
-      align-items: stretch;
-      text-align: center;
       gap: clamp(1rem, 6vw, 1.75rem);
       padding: clamp(1rem, 5vw, 1.5rem) clamp(1rem, 6vw, 1.75rem);
+    }
+
+    .hram-header__top {
+      flex-direction: column;
+      align-items: stretch;
+      gap: clamp(1rem, 5vw, 1.75rem);
     }
 
     .hram-header__identity {
@@ -479,17 +477,20 @@ a:active {
 }
 
 .hram-header--home .hram-header__identity {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: clamp(0.65rem, 1.6vw, 1rem);
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(0.85rem, 3vw, 2.5rem);
+  width: 100%;
 }
 
 .hram-header--home .hram-header__identity-text {
   order: 1;
-  width: 100%;
-  max-width: none;
+  width: auto;
+  max-width: clamp(32rem, 60vw, 56rem);
   color: inherit;
   gap: clamp(0.35rem, 1.4vw, 0.65rem);
+  text-align: left;
 }
 
 .hram-header--home .hram-header__identity-blessing {
@@ -512,6 +513,7 @@ a:active {
 
 .hram-header--home .hram-header__identity-link {
   order: 2;
+  margin-left: clamp(1rem, 3vw, 3.5rem);
 }
 
 .hram-header--home .hram-header__identity-link img {
@@ -521,17 +523,23 @@ a:active {
 .hram-header--home .hram-header__contacts--home {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: clamp(0.6rem, 1.8vw, 1rem);
+  flex-wrap: wrap;
 }
 
 .hram-header--home .hram-header__contacts--home .hram-header__contact {
   color: inherit;
   font-size: 1.05rem;
-  width: 44px;
-  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
 .hram-header--home .hram-header__contacts--home .hram-header__contact i {
@@ -543,14 +551,18 @@ a:active {
   background: rgba(255, 255, 255, 0.22);
   border-color: rgba(255, 255, 255, 0.28);
   color: #ffffff;
+  transform: translateY(-1px);
 }
 
-.hram-header--home .hram-header__menu--home {
-  margin-top: clamp(0.75rem, 3vw, 1.5rem);
+.hram-header--home .hram-header__nav {
+  width: 100%;
 }
 
-.hram-header--home .hram-header__menu--home .hram-header__menu-list {
-  justify-content: center;
+.hram-header--home .hram-header__nav .hram-header__menu-list {
+  justify-content: flex-start;
+  gap: clamp(1rem, 2.6vw, 2.75rem);
+  flex-wrap: wrap;
+  padding: 0;
 }
 
 .hram-button {
@@ -743,6 +755,7 @@ a:active {
   .hram-header--home + #content {
     position: relative;
     z-index: 1;
+    margin-top: clamp(-6.5rem, -14vw, -4.5rem);
   }
 
   .service-schedule {
@@ -966,6 +979,36 @@ a:active {
 
     &__main {
       padding: 0.75rem 0 1rem;
+    }
+  }
+
+  .hram-header--home {
+    .hram-header__identity {
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(0.75rem, 5vw, 1.5rem);
+    }
+
+    .hram-header__identity-text {
+      max-width: none;
+      text-align: center;
+    }
+
+    .hram-header__identity-link {
+      margin-left: 0;
+    }
+
+    .hram-header__contacts--home {
+      justify-content: center;
+    }
+
+    .hram-header__nav .hram-header__menu-list {
+      justify-content: center;
+      text-align: center;
+    }
+
+    & + #content {
+      margin-top: 0;
     }
   }
 }

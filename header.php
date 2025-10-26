@@ -63,20 +63,36 @@ defined('ABSPATH') || exit;
     <div class="<?php echo esc_attr($main_bar_classes); ?>">
       <?php if ($is_home_header) : ?>
         <div class="hram-header__main-inner">
-          <div class="hram-header__identity">
-            <div class="hram-header__identity-text">
-              <span class="hram-header__identity-blessing"><?= esc_html__('По благословению Высокопреосвященнейшего Лонгина, митрополита Симбирского и Новоспасского', 'bootscore'); ?></span>
-              <span class="hram-header__identity-heading">
-                <span><?= esc_html__('ХРАМ ВО ИМЯ СВЯТОГО ПРЕПОДОБНОГО ВЕЛИКОГО КНЯЗЯ', 'bootscore'); ?></span>
-                <span><?= esc_html__('АЛЕКСАНДРА НЕВСКОГО', 'bootscore'); ?></span>
-              </span>
-              <span class="hram-header__identity-line hram-header__identity-line--accent"><?= esc_html__('СИМБИРСКАЯ ЕПАРХИЯ РУССКОЙ ПРАВОСЛАВНОЙ ЦЕРКВИ', 'bootscore'); ?></span>
+          <div class="hram-header__top">
+            <div class="hram-header__identity">
+              <div class="hram-header__identity-text">
+                <span class="hram-header__identity-blessing"><?= esc_html__('По благословению Высокопреосвященнейшего Лонгина, митрополита Симбирского и Новоспасского', 'bootscore'); ?></span>
+                <span class="hram-header__identity-heading">
+                  <span><?= esc_html__('ХРАМ ВО ИМЯ СВЯТОГО ПРЕПОДОБНОГО ВЕЛИКОГО КНЯЗЯ', 'bootscore'); ?></span>
+                  <span><?= esc_html__('АЛЕКСАНДРА НЕВСКОГО', 'bootscore'); ?></span>
+                </span>
+                <span class="hram-header__identity-line hram-header__identity-line--accent"><?= esc_html__('СИМБИРСКАЯ ЕПАРХИЯ РУССКОЙ ПРАВОСЛАВНОЙ ЦЕРКВИ', 'bootscore'); ?></span>
+              </div>
+              <?php get_template_part('template-parts/logo', null, array('class' => 'hram-header__identity-link')); ?>
             </div>
-            <?php get_template_part('template-parts/logo', null, array('class' => 'hram-header__identity-link')); ?>
+            <div class="hram-header__contacts hram-social-links hram-header__contacts--home">
+              <?php hram_social_links(array('container' => false)); ?>
+            </div>
           </div>
-          <div class="hram-header__contacts hram-social-links hram-social-links--end hram-header__contacts--home">
-            <?php hram_social_links(array('container' => false)); ?>
-          </div>
+          <?php if ($has_main_menu) : ?>
+            <nav class="hram-header__nav" aria-label="<?= esc_attr__('Основное меню', 'bootscore'); ?>">
+              <?php
+              wp_nav_menu(array(
+                'theme_location' => 'main-menu',
+                'container'      => false,
+                'menu_class'     => 'hram-header__menu-list',
+                'fallback_cb'    => '__return_false',
+                'depth'          => 2,
+                'walker'         => new bootstrap_5_wp_nav_menu_walker(),
+              ));
+              ?>
+            </nav>
+          <?php endif; ?>
         </div>
       <?php else : ?>
         <div class="hram-header__identity">
@@ -102,18 +118,7 @@ defined('ABSPATH') || exit;
     </div>
 
     <?php if ($is_home_header && $has_main_menu) : ?>
-      <div class="hram-header__menu hram-header__menu--home container-fluid px-3 px-lg-5">
-        <?php
-        wp_nav_menu(array(
-          'theme_location' => 'main-menu',
-          'container'      => false,
-          'menu_class'     => 'hram-header__menu-list',
-          'fallback_cb'    => '__return_false',
-          'depth'          => 2,
-          'walker'         => new bootstrap_5_wp_nav_menu_walker(),
-        ));
-        ?>
-      </div>
+      <!-- Меню выводится в шапке -->
     <?php endif; ?>
 
     <?php if (!$is_home_header) : ?>
