@@ -109,7 +109,7 @@ $slider_has_loop = count($slider_slides) > 1;
                   <div class="swiper-wrapper">
                     <?php foreach ($slider_slides as $slide) : ?>
                       <div class="swiper-slide">
-                        <figure class="hram-hero-slider__figure">
+                        <figure class="hram-hero-slider__figure" data-swiper-parallax-scale="1.08" data-swiper-parallax-duration="1200">
                           <img
                             class="hram-hero-slider__image"
                             src="<?= esc_url($slide['url']); ?>"
@@ -117,6 +117,7 @@ $slider_has_loop = count($slider_slides) > 1;
                             <?php if (!empty($slide['sizes'])) : ?>sizes="<?= esc_attr($slide['sizes']); ?>"<?php endif; ?>
                             alt="<?= esc_attr($slide['alt']); ?>"
                             loading="eager"
+                            data-swiper-parallax="25%"
                           >
                         </figure>
                       </div>
@@ -133,8 +134,7 @@ $slider_has_loop = count($slider_slides) > 1;
                         <?php endif; ?>
 
                         <div class="hram-hero-slider__actions">
-                          <a class="hram-button hram-hero-slider__button" href="#" role="button"><?= esc_html__('Читать житие', 'bootscore'); ?></a>
-                          <a class="hram-button hram-hero-slider__button hram-hero-slider__button--ghost" href="#" role="button"><?= esc_html__('Смотреть видео', 'bootscore'); ?></a>
+                          <a class="hram-button hram-hero-slider__button" href="#" role="button"><?= esc_html__('Житие Святого Благоверного Князя Александра Невского', 'bootscore'); ?></a>
                         </div>
                       </div>
                     </div>
