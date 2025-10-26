@@ -1252,22 +1252,14 @@ function hram_service_schedule_shortcode($atts) {
     ?>
     <section class="service-schedule" data-service-schedule id="<?php echo esc_attr($wrapper_id); ?>">
         <div class="service-schedule__inner">
-            <?php if (!empty($atts['title'])) : ?>
-                <div class="service-schedule__header">
-                    <h2 class="service-schedule__title"><?php echo esc_html($atts['title']); ?></h2>
-                    <?php if (!empty($atts['subtitle'])) : ?>
-                        <p class="service-schedule__subtitle"><?php echo esc_html($atts['subtitle']); ?></p>
-                    <?php endif; ?>
-                </div>
-            <?php endif; ?>
             <div class="service-schedule__swiper swiper">
                 <div class="swiper-wrapper">
                     <?php foreach ($display_entries as $entry) : ?>
                         <div class="swiper-slide">
                             <article class="service-card" aria-label="<?php echo esc_attr(sprintf('%s %s', $entry['weekday'], $entry['full_date'])); ?>">
                                 <header class="service-card__date-row">
-                                    <span class="service-card__weekday"><?php echo esc_html($entry['weekday']); ?></span>
                                     <span class="service-card__date"><?php echo esc_html($entry['date_label']); ?></span>
+                                    <span class="service-card__weekday"><?php echo esc_html($entry['weekday']); ?></span>
                                 </header>
                                 <?php if (!empty($entry['memory'])) : ?>
                                     <div class="service-card__memory">
@@ -1316,6 +1308,12 @@ function hram_service_schedule_shortcode($atts) {
                     <button type="button" class="service-schedule__nav-button service-schedule__nav-button--prev" aria-label="<?php esc_attr_e('Предыдущие богослужения', 'bootscore'); ?>">&lt;</button>
                     <button type="button" class="service-schedule__nav-button service-schedule__nav-button--next" aria-label="<?php esc_attr_e('Следующие богослужения', 'bootscore'); ?>">&gt;</button>
                 </div>
+            </div>
+            <div class="service-schedule__footer">
+                <a class="service-schedule__more" href="https://nevsky-simbirsk.ru/расписание/">
+                    <span><?php esc_html_e('Смотреть подробнее', 'bootscore'); ?></span>
+                    <span class="service-schedule__more-icon" aria-hidden="true">→</span>
+                </a>
             </div>
         </div>
     </section>

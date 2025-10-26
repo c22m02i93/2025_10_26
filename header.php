@@ -33,23 +33,27 @@ defined('ABSPATH') || exit;
     <!-- Мобильная панель -->
     <?php
     $mobile_bar_classes = 'hram-header__mobile-bar container-fluid px-3 d-lg-none';
+
+    if (!$is_home_header) :
     ?>
-    <div class="<?php echo esc_attr($mobile_bar_classes); ?>">
-      <a class="hram-header__mobile-logo" href="<?= esc_url(home_url()); ?>">
-        <img src="<?= esc_url('http://nevsky-simbirsk.ru/wp-content/uploads/2025/10/hapka-1.svg'); ?>" alt="<?php bloginfo('name'); ?> Logo" loading="lazy">
-      </a>
-      <?php if (!$is_home_header) : ?>
+      <div class="<?php echo esc_attr($mobile_bar_classes); ?>">
+        <a class="hram-header__mobile-logo" href="<?= esc_url(home_url()); ?>">
+          <img src="<?= esc_url('http://nevsky-simbirsk.ru/wp-content/uploads/2025/10/hapka-1.svg'); ?>" alt="<?php bloginfo('name'); ?> Logo" loading="lazy">
+        </a>
         <button class="hram-header__toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="Меню">
           <span class="hram-header__toggler-line"></span>
           <span class="hram-header__toggler-line"></span>
           <span class="hram-header__toggler-line"></span>
         </button>
-      <?php endif; ?>
-    </div>
+      </div>
+    <?php endif; ?>
 
     <!-- Основная панель -->
     <?php
-    $main_bar_classes = 'hram-header__main container-fluid px-3 px-lg-5 d-none d-lg-flex';
+    $main_bar_classes = 'hram-header__main container-fluid px-3 px-lg-5';
+    if (!$is_home_header) {
+      $main_bar_classes .= ' d-none d-lg-flex';
+    }
     ?>
     <div class="<?php echo esc_attr($main_bar_classes); ?>">
       <div class="hram-header__identity">
@@ -58,7 +62,8 @@ defined('ABSPATH') || exit;
         </a>
 
         <div class="hram-header__identity-text">
-          <span class="hram-header__identity-title logo-title"><?= esc_html__('Храм во имя Святого Преподобного Великого Князя Александра Невского Симбирская Епархия Русской Православной Церкви', 'bootscore'); ?></span>
+          <span class="hram-header__identity-line hram-header__identity-line--main logo-title"><?= esc_html__('Храм во имя Святого Преподобного Великого Князя Александра Невского', 'bootscore'); ?></span>
+          <span class="hram-header__identity-line hram-header__identity-line--accent"><?= esc_html__('Симбирская Епархия Русской Православной Церкви', 'bootscore'); ?></span>
         </div>
       </div>
 

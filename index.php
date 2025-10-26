@@ -71,14 +71,6 @@ if ($slider_query->have_posts()) {
 }
 
 $hero_image = $slider_slides[0] ?? [];
-$hero_title = __('Житие Александра Невского', 'bootscore');
-$hero_text  = '';
-
-if ($hero_post instanceof WP_Post) {
-  $excerpt   = has_excerpt($hero_post->ID) ? get_the_excerpt($hero_post) : wp_strip_all_tags($hero_post->post_content);
-  $hero_text = wp_trim_words($excerpt, 28, '…');
-}
-
 $slider_has_loop = count($slider_slides) > 1;
 ?>
 
@@ -125,24 +117,15 @@ $slider_has_loop = count($slider_slides) > 1;
                   </div>
 
                   <div class="hram-hero-slider__overlay" data-parallax-scroll="28">
-                    <div class="hram-hero-slider__content" data-swiper-parallax="-120">
-                      <div class="hram-hero-slider__content-inner" data-parallax-scroll="16">
-                        <h1 class="hram-hero-slider__title"><?= esc_html($hero_title); ?></h1>
-
-                        <?php if (!empty($hero_text)) : ?>
-                          <p class="hram-hero-slider__description"><?= esc_html($hero_text); ?></p>
-                        <?php endif; ?>
-
-                        <div class="hram-hero-slider__actions">
-                          <a class="hram-button hram-hero-slider__button" href="#" role="button"><?= esc_html__('Житие Святого Благоверного Князя Александра Невского', 'bootscore'); ?></a>
+                      <div class="hram-hero-slider__content" data-swiper-parallax="-120">
+                        <div class="hram-hero-slider__content-inner" data-parallax-scroll="16">
+                          <div class="hram-hero-slider__actions">
+                            <a class="hram-button hram-hero-slider__button" href="#" role="button"><?= esc_html__('Житие Святого Благоверного Князя Александра Невского', 'bootscore'); ?></a>
+                          </div>
                         </div>
                       </div>
-                    </div>
                   </div>
 
-                  <?php if ($slider_has_loop) : ?>
-                    <div class="hram-hero-slider__pagination swiper-pagination" aria-hidden="true"></div>
-                  <?php endif; ?>
                 </div>
               </div>
             </section>
@@ -182,9 +165,7 @@ $slider_has_loop = count($slider_slides) > 1;
 
           <?php
           $service_schedule_block = hram_service_schedule_shortcode([
-            'limit'    => 5,
-            'title'    => __('Расписание богослужений', 'bootscore'),
-            'subtitle' => '',
+            'limit' => 5,
           ]);
 
           if (!empty($service_schedule_block)) {

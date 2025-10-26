@@ -42,7 +42,6 @@ jQuery(function ($) {
   if (heroSliderElement && typeof Swiper !== 'undefined') {
     const sliderLoop = heroSliderElement.dataset.sliderLoop === 'true';
     const autoplayDelay = parseInt(heroSliderElement.dataset.sliderAutoplay || '0', 10);
-    const paginationElement = heroSliderElement.querySelector('.hram-hero-slider__pagination');
 
     const sliderOptions = {
       loop: sliderLoop,
@@ -61,13 +60,6 @@ jQuery(function ($) {
         pauseOnMouseEnter: true
       } : false
     };
-
-    if (paginationElement) {
-      sliderOptions.pagination = {
-        el: paginationElement,
-        clickable: true
-      };
-    }
 
     const heroSlider = new Swiper(heroSliderElement, sliderOptions);
 
