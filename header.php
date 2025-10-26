@@ -12,6 +12,9 @@ defined('ABSPATH') || exit;
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="profile" href="https://gmpg.org/xfn/11">
+  <?php $theme_logo_url = esc_url(get_template_directory_uri() . '/assets/images/logo.svg'); ?>
+  <link rel="icon" href="<?php echo $theme_logo_url; ?>" type="image/svg+xml">
+  <meta property="og:image" content="<?php echo $theme_logo_url; ?>">
   <?php wp_head(); ?>
 </head>
 
@@ -37,9 +40,7 @@ defined('ABSPATH') || exit;
     if (!$is_home_header) :
     ?>
       <div class="<?php echo esc_attr($mobile_bar_classes); ?>">
-        <a class="hram-header__mobile-logo" href="<?= esc_url(home_url()); ?>">
-          <img src="<?= esc_url('http://nevsky-simbirsk.ru/wp-content/uploads/2025/10/hapka-1.svg'); ?>" alt="<?php bloginfo('name'); ?> Logo" loading="lazy">
-        </a>
+        <?php get_template_part('template-parts/logo', null, array('class' => 'hram-header__mobile-logo')); ?>
         <button class="hram-header__toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="Меню">
           <span class="hram-header__toggler-line"></span>
           <span class="hram-header__toggler-line"></span>
@@ -57,9 +58,7 @@ defined('ABSPATH') || exit;
     ?>
     <div class="<?php echo esc_attr($main_bar_classes); ?>">
       <div class="hram-header__identity">
-        <a class="hram-header__identity-link" href="<?= esc_url(home_url()); ?>">
-          <img src="<?= esc_url('http://nevsky-simbirsk.ru/wp-content/uploads/2025/10/hapka-1.svg'); ?>" alt="<?php bloginfo('name'); ?> Logo" loading="lazy">
-        </a>
+        <?php get_template_part('template-parts/logo', null, array('class' => 'hram-header__identity-link')); ?>
 
         <div class="hram-header__identity-text">
           <span class="hram-header__identity-line hram-header__identity-line--main logo-title"><?= esc_html__('Храм во имя Святого Преподобного Великого Князя Александра Невского', 'bootscore'); ?></span>
