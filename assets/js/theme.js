@@ -37,4 +37,76 @@ jQuery(function ($) {
   $('.height-85').css('height', 0.85 * $(window).height());
   $('.height-100').css('height', 1.0 * $(window).height());
 
+  const heroSliderElement = document.querySelector('.hram-hero-slider__swiper');
+
+  if (heroSliderElement && typeof Swiper !== 'undefined') {
+    const sliderLoop = heroSliderElement.dataset.sliderLoop === 'true';
+    const autoplayDelay = parseInt(heroSliderElement.dataset.sliderAutoplay || '0', 10);
+    const paginationElement = heroSliderElement.querySelector('.hram-hero-slider__pagination');
+
+    const sliderOptions = {
+      loop: sliderLoop,
+      speed: 900,
+      parallax: true,
+      watchSlidesProgress: true,
+      allowTouchMove: sliderLoop,
+      grabCursor: sliderLoop,
+      autoplay: autoplayDelay > 0 ? {
+        delay: autoplayDelay,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      } : false
+    };
+
+    if (paginationElement) {
+      sliderOptions.pagination = {
+        el: paginationElement,
+        clickable: true
+      };
+    }
+
+    const heroSlider = new Swiper(heroSliderElement, sliderOptions);
+
+    if (!sliderLoop) {
+      heroSlider.allowTouchMove = false;
+    }
+
+    const sliderSection = heroSliderElement.closest('.hram-hero-slider');
+
+    if (sliderSection) {
+      const parallaxNodes = sliderSection.querySelectorAll('[data-parallax-scroll]');
+
+      if (parallaxNodes.length) {
+        let rafId = null;
+
+        const updateParallax = () => {
+          const rect = sliderSection.getBoundingClientRect();
+          const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+          const progress = Math.min(Math.max((viewportHeight - rect.top) / (viewportHeight + rect.height), 0), 1);
+
+          parallaxNodes.forEach((node) => {
+            const intensity = parseFloat(node.getAttribute('data-parallax-scroll')) || 18;
+            node.style.transform = `translate3d(0, ${-progress * intensity}px, 0)`;
+          });
+        };
+
+        const requestParallax = () => {
+          if (rafId !== null) {
+            return;
+          }
+
+          rafId = window.requestAnimationFrame(() => {
+            rafId = null;
+            updateParallax();
+          });
+        };
+
+        updateParallax();
+
+        window.addEventListener('scroll', requestParallax, { passive: true });
+        window.addEventListener('resize', requestParallax);
+      }
+    }
+  }
+
 }); // jQuery End
