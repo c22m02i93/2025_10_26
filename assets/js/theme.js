@@ -46,9 +46,13 @@ jQuery(function ($) {
 
     const sliderOptions = {
       loop: sliderLoop,
-      speed: 900,
+      speed: 1400,
       parallax: true,
       watchSlidesProgress: true,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
       allowTouchMove: sliderLoop,
       grabCursor: sliderLoop,
       autoplay: autoplayDelay > 0 ? {
@@ -106,6 +110,33 @@ jQuery(function ($) {
         window.addEventListener('scroll', requestParallax, { passive: true });
         window.addEventListener('resize', requestParallax);
       }
+    }
+  }
+
+  const logoTitleElement = document.querySelector('.logo-title');
+
+  if (logoTitleElement && typeof gsap !== 'undefined' && typeof TextPlugin !== 'undefined') {
+    gsap.registerPlugin(TextPlugin);
+
+    const finalText = logoTitleElement.textContent.trim();
+
+    if (finalText.length) {
+      gsap.set(logoTitleElement, { opacity: 0 });
+      logoTitleElement.textContent = '';
+
+      const timeline = gsap.timeline({ delay: 0.4 });
+
+      timeline.to(logoTitleElement, {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power1.out'
+      }, 0);
+
+      timeline.to(logoTitleElement, {
+        text: finalText,
+        duration: 2.8,
+        ease: 'power1.out'
+      }, 0);
     }
   }
 

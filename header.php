@@ -26,18 +26,13 @@ defined('ABSPATH') || exit;
 
   <header id="masthead" class="site-header hram-header<?php echo $is_home_header ? ' hram-header--home' : ''; ?>">
 
-    <?php if (!$is_home_header) : ?>
-      <div class="hram-header__blessing">
-        <span>по благословению митрополита Симбирского и Новоспасского Лонгина</span>
-      </div>
-    <?php endif; ?>
+    <div class="hram-header__blessing">
+      <span><?= esc_html__('По благословению Высокопреосвященнейшего Лонгина, митрополита Симбирского и Новоспасского', 'bootscore'); ?></span>
+    </div>
 
     <!-- Мобильная панель -->
     <?php
     $mobile_bar_classes = 'hram-header__mobile-bar container-fluid px-3 d-lg-none';
-    if ($is_home_header) {
-      $mobile_bar_classes .= ' hram-header__mobile-bar--solo';
-    }
     ?>
     <div class="<?php echo esc_attr($mobile_bar_classes); ?>">
       <a class="hram-header__mobile-logo" href="<?= esc_url(home_url()); ?>">
@@ -55,15 +50,16 @@ defined('ABSPATH') || exit;
     <!-- Основная панель -->
     <?php
     $main_bar_classes = 'hram-header__main container-fluid px-3 px-lg-5 d-none d-lg-flex';
-    if ($is_home_header) {
-      $main_bar_classes .= ' hram-header__main--solo';
-    }
     ?>
     <div class="<?php echo esc_attr($main_bar_classes); ?>">
       <div class="hram-header__identity">
         <a class="hram-header__identity-link" href="<?= esc_url(home_url()); ?>">
           <img src="<?= esc_url('http://nevsky-simbirsk.ru/wp-content/uploads/2025/10/hapka-1.svg'); ?>" alt="<?php bloginfo('name'); ?> Logo" loading="lazy">
         </a>
+
+        <div class="hram-header__identity-text">
+          <span class="hram-header__identity-title logo-title"><?= esc_html__('Храм во имя Святого Преподобного Великого Князя Александра Невского Симбирская Епархия Русской Православной Церкви', 'bootscore'); ?></span>
+        </div>
       </div>
 
       <?php if (!$is_home_header) : ?>
