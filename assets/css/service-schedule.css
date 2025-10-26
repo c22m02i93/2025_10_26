@@ -1,0 +1,263 @@
+:root {
+  --service-schedule-bg: #ffffff;
+  --service-schedule-border: #d9b88e;
+  --service-schedule-primary: #222222;
+  --service-schedule-secondary: #777777;
+  --service-schedule-shadow: rgba(217, 184, 142, 0.18);
+}
+
+.service-schedule {
+  font-family: 'Manrope', 'Inter', 'Segoe UI', sans-serif;
+  color: var(--service-schedule-primary);
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0;
+  background: linear-gradient(180deg, rgba(252, 248, 242, 0.4) 0%, rgba(255, 255, 255, 0.9) 100%);
+}
+
+.service-schedule__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+
+.service-schedule__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.service-schedule__title {
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.4vw, 2.125rem);
+  letter-spacing: 0.04em;
+}
+
+.service-schedule__subtitle {
+  color: var(--service-schedule-secondary);
+  font-size: 0.95rem;
+}
+
+.service-schedule__swiper {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: clamp(2.5rem, 4vw, 3.25rem);
+}
+
+.service-schedule__swiper .swiper-wrapper {
+  padding-bottom: 0.5rem;
+}
+
+.service-schedule__swiper .swiper-slide {
+  height: auto;
+  display: flex;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.service-schedule__swiper .swiper-slide-active {
+  transform: translateY(-4px);
+}
+
+.service-card {
+  background: var(--service-schedule-bg);
+  border: 1px solid var(--service-schedule-border);
+  border-radius: 16px;
+  box-shadow: 0 16px 35px -24px var(--service-schedule-shadow);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: serviceCardFadeIn 0.8s ease forwards;
+  animation-delay: calc(var(--slide-index, 0) * 80ms);
+}
+
+@keyframes serviceCardFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.service-card__date-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.service-card__weekday {
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.service-card__date {
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.service-card__memory {
+  font-size: 0.95rem;
+  color: var(--service-schedule-primary);
+  background: linear-gradient(90deg, rgba(217, 184, 142, 0.12) 0%, rgba(217, 184, 142, 0) 100%);
+  border-left: 3px solid var(--service-schedule-border);
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.service-card__services {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.service-card__service {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  color: var(--service-schedule-primary);
+  font-size: 0.975rem;
+}
+
+.service-card__time {
+  font-weight: 700;
+  min-width: 3.5rem;
+  letter-spacing: 0.02em;
+}
+
+.service-card__title {
+  font-weight: 400;
+}
+
+.service-card__empty {
+  color: var(--service-schedule-secondary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.service-card__empty strong {
+  font-weight: 600;
+  color: var(--service-schedule-primary);
+}
+
+.service-schedule__nav {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.service-schedule__nav-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--service-schedule-border);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--service-schedule-primary);
+  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 18px -16px var(--service-schedule-shadow);
+}
+
+.service-schedule__nav-button:hover,
+.service-schedule__nav-button:focus {
+  background: rgba(255, 250, 244, 0.95);
+  border-color: #cfa873;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.service-schedule__nav-button:disabled,
+.service-schedule__nav-button.swiper-button-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 1023px) {
+  .service-schedule__swiper {
+    padding-bottom: 4rem;
+  }
+
+  .service-card {
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  .service-schedule__inner {
+    padding: 0 clamp(0.75rem, 4vw, 1.25rem);
+  }
+
+  .service-schedule__header {
+    text-align: left;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .service-schedule__swiper {
+    padding-bottom: 4.5rem;
+  }
+
+  .service-card {
+    padding: 1.25rem;
+    gap: 1rem;
+    border-radius: 12px;
+  }
+
+  .service-card__date-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .service-card__memory {
+    font-size: 0.9rem;
+  }
+
+  .service-card__services {
+    gap: 0.7rem;
+  }
+
+  .service-card__service {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .service-card__time {
+    min-width: auto;
+  }
+
+  .service-schedule__nav {
+    bottom: 0.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-schedule__swiper .swiper-slide,
+  .service-card,
+  .service-schedule__nav-button {
+    transition: none !important;
+    animation: none !important;
+  }
+}

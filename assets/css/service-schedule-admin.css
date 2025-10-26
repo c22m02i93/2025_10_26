@@ -1,0 +1,75 @@
+.hram-service-schedule-metabox {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hram-service-schedule-metabox label span {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.hram-service-schedule-metabox .label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.hram-service-schedule-metabox input[type="date"],
+.hram-service-schedule-metabox input[type="time"],
+.hram-service-schedule-metabox input[type="text"] {
+  width: 100%;
+}
+
+.hram-service-schedule-services {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hram-service-schedule-services__row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #f8f8f8;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+}
+
+.hram-service-schedule-services__field {
+  flex: 1;
+}
+
+.hram-service-schedule-services__field--title {
+  flex: 2;
+}
+
+.hram-service-schedule-services__remove {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #b32d2e;
+}
+
+.hram-service-schedule-services__actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hram-service-schedule-services__add.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+@media (max-width: 782px) {
+  .hram-service-schedule-services__row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hram-service-schedule-services__remove {
+    align-self: flex-end;
+  }
+}
