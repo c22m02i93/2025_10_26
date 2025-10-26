@@ -143,12 +143,12 @@
 
 .service-schedule__nav {
   position: absolute;
-  top: 50%;
+  bottom: clamp(1.25rem, 4vw, 2rem);
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   width: calc(100% - clamp(2rem, 6vw, 4rem));
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   gap: clamp(1rem, 3vw, 1.75rem);
   pointer-events: none;
@@ -174,12 +174,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 18px -16px var(--service-schedule-shadow);
-}
-
-.service-schedule__nav-button:hover,
+@@ -183,99 +183,122 @@
 .service-schedule__nav-button:focus {
   background: rgba(255, 250, 244, 0.95);
   border-color: #cfa873;
@@ -205,6 +200,7 @@
   letter-spacing: 0.04em;
   transition: color 0.25s ease, transform 0.25s ease;
   pointer-events: auto;
+  align-self: flex-end;
 }
 
 .service-schedule__more:hover,
@@ -241,6 +237,22 @@
   .service-card {
     border-radius: 14px;
   }
+
+  .service-schedule__nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: clamp(0.75rem, 3.5vw, 1.2rem);
+  }
+
+  .service-schedule__nav-buttons {
+    order: 0;
+    align-self: flex-start;
+  }
+
+  .service-schedule__more {
+    order: 1;
+    align-self: flex-end;
+  }
 }
 
 @media (max-width: 767px) {
@@ -252,6 +264,12 @@
     padding: 1.25rem;
     gap: 1rem;
     border-radius: 12px;
+  }
+
+  .service-schedule__nav {
+    width: calc(100% - clamp(1.5rem, 8vw, 2.5rem));
+    padding: 0 clamp(0.5rem, 5vw, 1rem);
+    bottom: clamp(0.65rem, 6vw, 1.1rem);
   }
 
   .service-card__date-row {
@@ -277,27 +295,6 @@
   .service-card__time {
     min-width: auto;
   }
-
-  .service-schedule__nav {
-    position: static;
-    transform: none;
-    width: 100%;
-    justify-content: flex-end;
-    pointer-events: auto;
-    margin-top: clamp(0.5rem, 4vw, 0.75rem);
-    padding: 0;
-  }
-
-  .service-schedule__nav-buttons {
-    display: none;
-  }
-
-  .service-schedule__more {
-    justify-content: flex-end;
-    margin-top: 0;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .service-schedule__swiper .swiper-slide,
   .service-card,
