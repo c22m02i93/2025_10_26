@@ -126,3 +126,26 @@ if (class_exists('WooCommerce')) {
 if (defined('JETPACK__VERSION')) {
   require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Replace default site icon markup with theme SVG favicon.
+ */
+function hram_setup_svg_favicon_support() {
+  remove_action('wp_head', 'wp_site_icon', 99);
+  remove_action('admin_head', 'wp_site_icon', 99);
+  remove_action('login_head', 'wp_site_icon', 99);
+}
+add_action('after_setup_theme', 'hram_setup_svg_favicon_support', 20);
+
+/**
+ * Output SVG favicon links for all contexts.
+ */
+function hram_output_svg_favicon() {
+  $favicon_url = get_template_directory_uri() . '/assets/images/favicon.svg';
+
+  printf("<link rel=\"icon\" type=\"image/svg+xml\" href=\"%s\">\n", esc_url($favicon_url));
+  printf("<link rel=\"alternate icon\" type=\"image/svg+xml\" href=\"%s\">\n", esc_url($favicon_url));
+}
+add_action('wp_head', 'hram_output_svg_favicon', 5);
+add_action('admin_head', 'hram_output_svg_favicon', 5);
+add_action('login_head', 'hram_output_svg_favicon', 5);

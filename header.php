@@ -41,30 +41,35 @@ defined('ABSPATH') || exit;
 
           <div class="hram-header__title-group">
             <span class="hram-header__title-blessing">ПО БЛАГОСЛОВЕНИЮ ВЫСОКОПРЕОСВЯЩЕННЕЙШЕГО ЛОНГИНА МИТРОПОЛИТА СИМБИРСКОГО И НОВОСПАССКОГО</span>
-            <span class="hram-header__title">ХРАМ ВО ИМЯ СВЯТОГО БЛАГОВЕРНОГО ВЕЛИКОГО КНЯЗЯ АЛЕКСАНДРА НЕВСКОГО</span>
+            <span class="hram-header__title">
+              <span class="hram-header__title-line">ХРАМ ВО ИМЯ СВЯТОГО БЛАГОВЕРНОГО</span>
+              <span class="hram-header__title-line">ВЕЛИКОГО КНЯЗЯ АЛЕКСАНДРА НЕВСКОГО</span>
+            </span>
             <span class="hram-header__subtitle">Симбирская Епархия Русской Православной Церкви</span>
           </div>
 
-          <div class="hram-header__socials">
-            <a href="https://vk.com" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="ВКонтакте">
-              <i class="fa-brands fa-vk" aria-hidden="true"></i>
-            </a>
-            <a href="https://t.me" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Telegram">
-              <i class="fa-brands fa-telegram-plane" aria-hidden="true"></i>
-            </a>
-            <a href="tel:+78422000000" class="hram-header__social-link" aria-label="Позвонить">
-              <i class="fa-solid fa-phone" aria-hidden="true"></i>
-            </a>
-            <a href="mailto:info@nevsky-simbirsk.ru" class="hram-header__social-link" aria-label="Email">
-              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-            </a>
-          </div>
+          <div class="hram-header__actions">
+            <div class="hram-header__socials" role="group" aria-label="Социальные сети">
+              <a href="https://vk.com" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="ВКонтакте">
+                <i class="fa-brands fa-vk" aria-hidden="true"></i>
+              </a>
+              <a href="https://t.me" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Telegram">
+                <i class="fa-brands fa-telegram-plane" aria-hidden="true"></i>
+              </a>
+              <a href="tel:+78422000000" class="hram-header__social-link" aria-label="Позвонить">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              </a>
+              <a href="mailto:info@nevsky-simbirsk.ru" class="hram-header__social-link" aria-label="Email">
+                <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+              </a>
+            </div>
 
-          <button class="hram-header__toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="Меню">
-            <span class="hram-header__toggler-line"></span>
-            <span class="hram-header__toggler-line"></span>
-            <span class="hram-header__toggler-line"></span>
-          </button>
+            <button class="hram-header__toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="Меню">
+              <span class="hram-header__toggler-line"></span>
+              <span class="hram-header__toggler-line"></span>
+              <span class="hram-header__toggler-line"></span>
+            </button>
+          </div>
         </div>
 
         <nav class="hram-header__nav" aria-label="<?= esc_attr__('Основное меню', 'bootscore'); ?>">
