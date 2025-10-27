@@ -1901,8 +1901,59 @@ a:active {
     padding-bottom: 0;
   }
 
+  .hram-header__brand {
+    gap: clamp(0.85rem, 2vw, 1.6rem);
+  }
+
+  .hram-header__socials--desktop {
+    display: flex;
+  }
+
   .hram-header__nav {
     display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: clamp(0.35rem, 1vw, 0.75rem);
+    padding: 0 clamp(1.25rem, 3.2vw, 2rem);
+    box-sizing: border-box;
+  }
+
+  .hram-header__menu-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(1rem, 2.5vw, 2rem);
+    margin: 0 auto;
+    padding: clamp(0.85rem, 1.8vw, 1.2rem) clamp(1.5rem, 3.2vw, 2.75rem);
+    list-style: none;
+    width: min(100%, var(--hram-header-max-width));
+    background: #1b120a;
+    border-radius: clamp(0.85rem, 1.6vw, 1.35rem);
+    box-shadow: 0 18px 36px rgba(17, 10, 6, 0.25);
+  }
+
+  .hram-header__menu-list > li {
+    list-style: none;
+  }
+
+  .hram-header__menu-list > li > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: clamp(0.82rem, 0.95vw, 0.98rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .hram-header__menu-list > li > a:hover,
+  .hram-header__menu-list > li > a:focus-visible {
+    color: #f7d6a3;
+    outline: none;
   }
 
   .hram-header__toggler {
@@ -1913,6 +1964,11 @@ a:active {
 @media (max-width: 991.98px) {
   .hram-header {
     padding: 0;
+  }
+
+  .hram-header__brand {
+    flex: 1 1 auto;
+    gap: clamp(0.5rem, 4vw, 0.85rem);
   }
 
   .hram-header__title-group {
@@ -2000,13 +2056,28 @@ a:active {
 }
 
 .hram-header__container {
-  padding: clamp(1rem, 2.2vw, 1.5rem) clamp(1.25rem, 3vw, 2.4rem);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .hram-header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 2.6vw, 2rem);
+  margin-bottom: clamp(0.35rem, 1vw, 0.75rem);
   background: transparent;
   padding: clamp(0.75rem, 2vw, 1.1rem) clamp(1.25rem, 3.2vw, 2rem);
+}
+
+.hram-header__brand {
+  display: flex;
   align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  flex: 0 1 auto;
+  min-width: 0;
 }
 
 .hram-header__logo,
@@ -2020,7 +2091,20 @@ a:active {
 }
 
 .hram-header__title-group {
+  flex: 1 1 auto;
   color: #2f1f12;
+}
+
+.hram-header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.hram-header__socials--desktop {
+  display: none;
+  align-items: center;
+  gap: clamp(0.55rem, 1.6vw, 1rem);
 }
 
 .hram-header__title-blessing {
