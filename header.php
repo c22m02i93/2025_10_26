@@ -35,9 +35,26 @@ defined('ABSPATH') || exit;
     <div class="hram-header__glass">
       <div class="hram-header__container">
         <div class="hram-header__top">
-          <a class="hram-header__logo" href="<?= esc_url(home_url()); ?>">
-            <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/logo.svg'); ?>" alt="<?php bloginfo('name'); ?> Logo" loading="lazy">
-          </a>
+          <div class="hram-header__brand">
+            <a class="hram-header__logo" href="<?= esc_url(home_url()); ?>">
+              <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/logo.svg'); ?>" alt="<?php bloginfo('name'); ?> Logo" loading="lazy">
+            </a>
+
+            <div class="hram-header__socials hram-header__socials--desktop" role="group" aria-label="Социальные сети">
+              <a href="https://vk.com" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="ВКонтакте">
+                <i class="fa-brands fa-vk" aria-hidden="true"></i>
+              </a>
+              <a href="https://t.me" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Telegram">
+                <i class="fa-brands fa-telegram-plane" aria-hidden="true"></i>
+              </a>
+              <a href="tel:+78422000000" class="hram-header__social-link" aria-label="Позвонить">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              </a>
+              <a href="mailto:info@nevsky-simbirsk.ru" class="hram-header__social-link" aria-label="Email">
+                <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
 
           <div class="hram-header__title-group">
             <span class="hram-header__title-blessing">ПО БЛАГОСЛОВЕНИЮ ВЫСОКОПРЕОСВЯЩЕННЕЙШЕГО ЛОНГИНА МИТРОПОЛИТА СИМБИРСКОГО И НОВОСПАССКОГО</span>
