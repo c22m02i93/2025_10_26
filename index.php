@@ -238,6 +238,19 @@ $slider_has_loop = count($slider_slides) > 1;
                         </a>
 
                         <div class="front-news-card__content">
+                          <?php
+                          $news_categories        = get_the_category();
+                          $news_primary_category = $news_categories ? $news_categories[0] : null;
+
+                          if ($news_primary_category instanceof WP_Term) :
+                            ?>
+                            <div class="front-news-card__category">
+                              <a class="front-news-card__category-link" href="<?= esc_url(get_category_link($news_primary_category->term_id)); ?>">
+                                <?= esc_html($news_primary_category->name); ?>
+                              </a>
+                            </div>
+                          <?php endif; ?>
+
                           <h3 class="front-news-card__title">
                             <a class="front-news-card__link" href="<?= esc_url(get_permalink()); ?>">
                               <?= esc_html(get_the_title()); ?>
@@ -286,6 +299,7 @@ $slider_has_loop = count($slider_slides) > 1;
                         class="front-announcements__slider swiper"
                         data-announcements-slider
                         data-slider-loop="<?= $announcements_loop ? 'true' : 'false'; ?>"
+                        data-slider-autoplay="6000"
                       >
                         <div class="swiper-wrapper">
                           <?php
@@ -325,7 +339,7 @@ $slider_has_loop = count($slider_slides) > 1;
                     </div>
                     <div class="sideblock-my"><script language="Javascript" src="https://script.pravoslavie.ru/calendar.php?hrams=0&amp;target=_blank&amp;bold=1&amp;tipikon=1&amp;saints=1&amp;para=1&amp;short=1"></script></div>
                     <?php // phpcs:enable WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>
-                    <div class="cont"><a target="_blank" href="/segodnya-prazdnuetsya/"><?= esc_html__('Перейти к подробному календарю', 'bootscore'); ?></a></div>
+                    <div class="cont"><a target="_blank" rel="noopener" href="https://nevsky-simbirsk.ru/segodnya-prazdnuetsya/"><?= esc_html__('Показать подробнее', 'bootscore'); ?></a></div>
                   </div>
                 </div>
               </div>
