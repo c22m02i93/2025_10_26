@@ -139,6 +139,9 @@ jQuery(function ($) {
     const prevButton = announcementsWrapper ? announcementsWrapper.querySelector('[data-announcements-prev]') : null;
     const nextButton = announcementsWrapper ? announcementsWrapper.querySelector('[data-announcements-next]') : null;
     const loopSlides = announcementsSliderElement.dataset.sliderLoop === 'true';
+    const autoplayDelay = parseInt(announcementsSliderElement.dataset.sliderAutoplay, 10);
+    const hasMultipleSlides = announcementsSliderElement.querySelectorAll('.swiper-slide').length > 1;
+    const shouldAutoplay = !Number.isNaN(autoplayDelay) && autoplayDelay > 0 && hasMultipleSlides;
 
     const sliderOptions = {
       slidesPerView: 1,
@@ -150,6 +153,13 @@ jQuery(function ($) {
         nextEl: nextButton
       }
     };
+
+    if (shouldAutoplay) {
+      sliderOptions.autoplay = {
+        delay: autoplayDelay,
+        disableOnInteraction: false
+      };
+    }
 
     const announcementsSlider = new Swiper(announcementsSliderElement, sliderOptions);
 
