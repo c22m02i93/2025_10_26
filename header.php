@@ -39,21 +39,6 @@ defined('ABSPATH') || exit;
             <a class="hram-header__logo" href="<?= esc_url(home_url()); ?>">
               <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/logo.svg'); ?>" alt="<?php bloginfo('name'); ?> Logo" loading="lazy">
             </a>
-
-            <div class="hram-header__socials hram-header__socials--desktop" role="group" aria-label="Социальные сети">
-              <a href="https://vk.com" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="ВКонтакте">
-                <i class="fa-brands fa-vk" aria-hidden="true"></i>
-              </a>
-              <a href="https://t.me" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Telegram">
-                <i class="fa-brands fa-telegram-plane" aria-hidden="true"></i>
-              </a>
-              <a href="tel:+78422000000" class="hram-header__social-link" aria-label="Позвонить">
-                <i class="fa-solid fa-phone" aria-hidden="true"></i>
-              </a>
-              <a href="https://wa.me/78422000000" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Мессенджер">
-                <i class="fa-solid fa-comments" aria-hidden="true"></i>
-              </a>
-            </div>
           </div>
 
           <div class="hram-header__title-group">
@@ -75,16 +60,33 @@ defined('ABSPATH') || exit;
         </div>
 
         <nav class="hram-header__nav" aria-label="<?= esc_attr__('Основное меню', 'bootscore'); ?>">
-          <?php
-          wp_nav_menu(array(
-            'theme_location' => 'main-menu',
-            'container'      => false,
-            'menu_class'     => 'hram-header__menu-list',
-            'fallback_cb'    => '__return_false',
-            'depth'          => 2,
-            'walker'         => new bootstrap_5_wp_nav_menu_walker(),
-          ));
-          ?>
+          <div class="hram-header__nav-inner">
+            <?php
+            wp_nav_menu(array(
+              'theme_location' => 'main-menu',
+              'container'      => false,
+              'menu_class'     => 'hram-header__menu-list',
+              'fallback_cb'    => '__return_false',
+              'depth'          => 2,
+              'walker'         => new bootstrap_5_wp_nav_menu_walker(),
+            ));
+            ?>
+
+            <div class="hram-header__socials hram-header__socials--desktop" role="group" aria-label="Социальные сети">
+              <a href="https://vk.com" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="ВКонтакте">
+                <i class="fa-brands fa-vk" aria-hidden="true"></i>
+              </a>
+              <a href="https://t.me" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Telegram">
+                <i class="fa-brands fa-telegram-plane" aria-hidden="true"></i>
+              </a>
+              <a href="tel:+78422000000" class="hram-header__social-link" aria-label="Позвонить">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              </a>
+              <a href="https://wa.me/78422000000" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Мессенджер">
+                <i class="fa-solid fa-comments" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
         </nav>
       </div>
     </div>
