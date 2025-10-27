@@ -1285,7 +1285,7 @@ a:active {
   }
 
   &__nav .nav-link {
-    color: rgba(255, 255, 255, 0.94);
+    color: #2d1b10;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -1296,7 +1296,7 @@ a:active {
 
   &__nav .nav-link:hover,
   &__nav .nav-link:focus {
-    color: rgba(255, 255, 255, 0.7);
+    color: #4b301a;
   }
 
   &__offcanvas-contacts {
@@ -1825,7 +1825,7 @@ a:active {
     padding: 0.35rem 0;
     font-size: clamp(0.85rem, 1.1vw, 1rem);
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.94);
+    color: #2d1b10;
     text-decoration: none;
     transition: color 0.2s ease;
   }
@@ -1845,7 +1845,7 @@ a:active {
 
   &__menu-list > li > a:hover,
   &__menu-list > li > a:focus-visible {
-    color: rgba(247, 219, 168, 0.85);
+    color: #4b301a;
   }
 
   &__menu-list > li > a:hover::after,
