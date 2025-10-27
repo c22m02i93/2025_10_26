@@ -279,67 +279,69 @@ $slider_has_loop = count($slider_slides) > 1;
                   <?php wp_reset_postdata(); ?>
                 <?php endif; ?>
 
-                <?php if ($has_announcements) : ?>
-                  <div class="front-updates__announcements">
-                    <div class="front-announcements" data-announcements>
-                      <div class="front-announcements__header">
-                        <h2 class="front-announcements__title"><?= esc_html__('Объявления', 'bootscore'); ?></h2>
+                <div class="front-updates__sidebar">
+                  <?php if ($has_announcements) : ?>
+                    <div class="front-updates__announcements">
+                      <div class="front-announcements" data-announcements>
+                        <div class="front-announcements__header">
+                          <h2 class="front-announcements__title"><?= esc_html__('Объявления', 'bootscore'); ?></h2>
 
-                        <div class="front-announcements__nav">
-                          <button class="front-announcements__nav-btn" type="button" data-announcements-prev aria-label="<?= esc_attr__('Предыдущий слайд', 'bootscore'); ?>">
-                            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-                          </button>
-                          <button class="front-announcements__nav-btn" type="button" data-announcements-next aria-label="<?= esc_attr__('Следующий слайд', 'bootscore'); ?>">
-                            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-                          </button>
+                          <div class="front-announcements__nav">
+                            <button class="front-announcements__nav-btn" type="button" data-announcements-prev aria-label="<?= esc_attr__('Предыдущий слайд', 'bootscore'); ?>">
+                              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                            </button>
+                            <button class="front-announcements__nav-btn" type="button" data-announcements-next aria-label="<?= esc_attr__('Следующий слайд', 'bootscore'); ?>">
+                              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                            </button>
+                          </div>
                         </div>
-                      </div>
 
-                      <div
-                        class="front-announcements__slider swiper"
-                        data-announcements-slider
-                        data-slider-loop="<?= $announcements_loop ? 'true' : 'false'; ?>"
-                        data-slider-autoplay="6000"
-                      >
-                        <div class="swiper-wrapper">
-                          <?php
-                          while ($announcements_query->have_posts()) :
-                            $announcements_query->the_post();
-                            ?>
-                            <div class="swiper-slide front-announcements__slide">
-                              <a class="front-announcements__card" href="<?= esc_url(get_permalink()); ?>">
-                                <span class="front-announcements__media">
-                                  <?php if (has_post_thumbnail()) : ?>
-                                    <?= wp_get_attachment_image(get_post_thumbnail_id(), 'medium_large', false, [
-                                      'class'   => 'front-announcements__image',
-                                      'loading' => 'lazy',
-                                    ]); ?>
-                                  <?php else : ?>
-                                    <span class="front-announcements__placeholder" aria-hidden="true"></span>
-                                  <?php endif; ?>
-                                </span>
+                        <div
+                          class="front-announcements__slider swiper"
+                          data-announcements-slider
+                          data-slider-loop="<?= $announcements_loop ? 'true' : 'false'; ?>"
+                          data-slider-autoplay="6000"
+                        >
+                          <div class="swiper-wrapper">
+                            <?php
+                            while ($announcements_query->have_posts()) :
+                              $announcements_query->the_post();
+                              ?>
+                              <div class="swiper-slide front-announcements__slide">
+                                <a class="front-announcements__card" href="<?= esc_url(get_permalink()); ?>">
+                                  <span class="front-announcements__media">
+                                    <?php if (has_post_thumbnail()) : ?>
+                                      <?= wp_get_attachment_image(get_post_thumbnail_id(), 'medium_large', false, [
+                                        'class'   => 'front-announcements__image',
+                                        'loading' => 'lazy',
+                                      ]); ?>
+                                    <?php else : ?>
+                                      <span class="front-announcements__placeholder" aria-hidden="true"></span>
+                                    <?php endif; ?>
+                                  </span>
 
-                                <span class="front-announcements__slide-title"><?= esc_html(get_the_title()); ?></span>
-                              </a>
-                            </div>
-                          <?php endwhile; ?>
+                                  <span class="front-announcements__slide-title"><?= esc_html(get_the_title()); ?></span>
+                                </a>
+                              </div>
+                            <?php endwhile; ?>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <?php wp_reset_postdata(); ?>
-                <?php endif; ?>
+                    <?php wp_reset_postdata(); ?>
+                  <?php endif; ?>
 
-                <div class="front-updates__calendar">
-                  <div class="front-calendar">
-                    <div class="title-html-my">Сегодня празднуется</div>
-                    <?php // phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>
-                    <div class="title-html-my-2">
-                      <center><script type="text/javascript" language="Javascript" src="https://script.pravoslavie.ru/icon.php?scale=1.2"></script></center>
+                  <div class="front-updates__calendar">
+                    <div class="front-calendar">
+                      <div class="title-html-my">Сегодня празднуется</div>
+                      <?php // phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>
+                      <div class="title-html-my-2">
+                        <center><script type="text/javascript" language="Javascript" src="https://script.pravoslavie.ru/icon.php?scale=1.2"></script></center>
+                      </div>
+                      <div class="sideblock-my"><script language="Javascript" src="https://script.pravoslavie.ru/calendar.php?hrams=0&amp;target=_blank&amp;bold=1&amp;tipikon=1&amp;saints=1&amp;para=1&amp;short=1"></script></div>
+                      <?php // phpcs:enable WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>
+                      <div class="cont"><a target="_blank" rel="noopener" href="https://nevsky-simbirsk.ru/segodnya-prazdnuetsya/"><?= esc_html__('Показать подробнее', 'bootscore'); ?></a></div>
                     </div>
-                    <div class="sideblock-my"><script language="Javascript" src="https://script.pravoslavie.ru/calendar.php?hrams=0&amp;target=_blank&amp;bold=1&amp;tipikon=1&amp;saints=1&amp;para=1&amp;short=1"></script></div>
-                    <?php // phpcs:enable WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>
-                    <div class="cont"><a target="_blank" rel="noopener" href="https://nevsky-simbirsk.ru/segodnya-prazdnuetsya/"><?= esc_html__('Показать подробнее', 'bootscore'); ?></a></div>
                   </div>
                 </div>
               </div>
