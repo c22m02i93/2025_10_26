@@ -50,6 +50,21 @@ defined('ABSPATH') || exit;
             <span class="hram-header__subtitle">Симбирская Епархия Русской Православной Церкви</span>
           </div>
 
+          <div class="hram-header__socials hram-header__socials--desktop" role="group" aria-label="Социальные сети">
+            <a href="https://vk.com" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="ВКонтакте">
+              <i class="fa-brands fa-vk" aria-hidden="true"></i>
+            </a>
+            <a href="https://t.me" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Telegram">
+              <i class="fa-brands fa-telegram-plane" aria-hidden="true"></i>
+            </a>
+            <a href="tel:+78422000000" class="hram-header__social-link" aria-label="Позвонить">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/78422000000" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Мессенджер">
+              <i class="fa-solid fa-comments" aria-hidden="true"></i>
+            </a>
+          </div>
+
           <div class="hram-header__actions">
             <button class="hram-header__toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="Меню">
               <span class="hram-header__toggler-line"></span>
@@ -72,20 +87,6 @@ defined('ABSPATH') || exit;
             ));
             ?>
 
-            <div class="hram-header__socials hram-header__socials--desktop" role="group" aria-label="Социальные сети">
-              <a href="https://vk.com" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="ВКонтакте">
-                <i class="fa-brands fa-vk" aria-hidden="true"></i>
-              </a>
-              <a href="https://t.me" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Telegram">
-                <i class="fa-brands fa-telegram-plane" aria-hidden="true"></i>
-              </a>
-              <a href="tel:+78422000000" class="hram-header__social-link" aria-label="Позвонить">
-                <i class="fa-solid fa-phone" aria-hidden="true"></i>
-              </a>
-              <a href="https://wa.me/78422000000" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Мессенджер">
-                <i class="fa-solid fa-comments" aria-hidden="true"></i>
-              </a>
-            </div>
           </div>
         </nav>
       </div>
