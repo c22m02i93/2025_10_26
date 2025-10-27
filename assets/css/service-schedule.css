@@ -10,7 +10,7 @@
   font-family: 'Manrope', 'Inter', 'Segoe UI', sans-serif;
   color: var(--service-schedule-primary);
   padding: clamp(1.5rem, 3vw, 2.5rem) 0;
-  background: linear-gradient(180deg, rgba(248, 237, 218, 0.45) 0%, rgba(255, 249, 242, 0.9) 100%);
+  background: none;
 }
 
 .service-schedule__inner {
