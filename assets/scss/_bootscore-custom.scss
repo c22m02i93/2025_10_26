@@ -2127,17 +2127,90 @@ a:active {
   background: #5b4125;
 }
 
+/* -------------------------------------------------------------------------- */
+/*  Header navigation compact layout                                          */
+/* -------------------------------------------------------------------------- */
 .hram-header__social-link {
-  width: 38px;
-  height: 38px;
-  color: #4b301a;
-  background: rgba(237, 226, 214, 0.85);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  padding: 0;
+  color: #1f1f1f;
+  background: transparent;
+  font-size: 1rem;
+  transition: color 0.2s ease;
 }
 
 .hram-header__social-link:hover,
 .hram-header__social-link:focus-visible {
-  color: #fdf9f4;
-  background: #5b4125;
+  color: #4b301a;
+  background: transparent;
+}
+
+@media (min-width: 992px) {
+  .hram-header__top {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .hram-header__brand {
+    align-items: center;
+    gap: clamp(0.75rem, 1.8vw, 1.5rem);
+  }
+
+  .hram-header__socials--desktop {
+    display: flex;
+    gap: clamp(0.5rem, 1.2vw, 0.9rem);
+  }
+
+  .hram-header__nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0;
+    padding: 0 clamp(1.25rem, 3.2vw, 2rem);
+    box-sizing: border-box;
+  }
+
+  .hram-header__menu-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(0.85rem, 1.8vw, 1.5rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: min(100%, var(--hram-header-max-width));
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .hram-header__menu-list > li {
+    list-style: none;
+  }
+
+  .hram-header__menu-list > li > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: clamp(0.82rem, 0.95vw, 0.98rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #1f1f1f;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .hram-header__menu-list > li > a:hover,
+  .hram-header__menu-list > li > a:focus-visible {
+    color: #4b301a;
+    outline: none;
+  }
 }
 
 .hram-header .offcanvas {
