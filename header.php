@@ -49,21 +49,6 @@ defined('ABSPATH') || exit;
           </div>
 
           <div class="hram-header__actions">
-            <div class="hram-header__socials" role="group" aria-label="Социальные сети">
-              <a href="https://vk.com" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="ВКонтакте">
-                <i class="fa-brands fa-vk" aria-hidden="true"></i>
-              </a>
-              <a href="https://t.me" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Telegram">
-                <i class="fa-brands fa-telegram-plane" aria-hidden="true"></i>
-              </a>
-              <a href="tel:+78422000000" class="hram-header__social-link" aria-label="Позвонить">
-                <i class="fa-solid fa-phone" aria-hidden="true"></i>
-              </a>
-              <a href="mailto:info@nevsky-simbirsk.ru" class="hram-header__social-link" aria-label="Email">
-                <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-              </a>
-            </div>
-
             <button class="hram-header__toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="Меню">
               <span class="hram-header__toggler-line"></span>
               <span class="hram-header__toggler-line"></span>
@@ -90,7 +75,23 @@ defined('ABSPATH') || exit;
     <div class="offcanvas offcanvas-start hram-header__offcanvas" tabindex="-1" id="offcanvas-navbar">
       <div class="offcanvas-header">
         <span class="h5 offcanvas-title"><?= __('Меню', 'bootscore'); ?></span>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="<?= esc_attr__('Закрыть', 'bootscore'); ?>"></button>
+        <div class="hram-header__offcanvas-tools">
+          <div class="hram-header__socials" role="group" aria-label="Социальные сети">
+            <a href="https://vk.com" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="ВКонтакте">
+              <i class="fa-brands fa-vk" aria-hidden="true"></i>
+            </a>
+            <a href="https://t.me" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Telegram">
+              <i class="fa-brands fa-telegram-plane" aria-hidden="true"></i>
+            </a>
+            <a href="tel:+78422000000" class="hram-header__social-link" aria-label="Позвонить">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:info@nevsky-simbirsk.ru" class="hram-header__social-link" aria-label="Email">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            </a>
+          </div>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="<?= esc_attr__('Закрыть', 'bootscore'); ?>"></button>
+        </div>
       </div>
       <div class="offcanvas-body">
         <?php get_template_part('template-parts/header/main-menu'); ?>
