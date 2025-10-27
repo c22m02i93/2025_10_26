@@ -1907,6 +1907,10 @@ a:active {
 
   .hram-header__socials--desktop {
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    align-self: stretch;
   }
 
 .hram-header__nav {
@@ -1953,7 +1957,7 @@ a:active {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #222222;
+  color: #2d1b10;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -2126,9 +2130,12 @@ a:active {
 
 .hram-header__socials--desktop {
   display: none;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
   gap: clamp(0.55rem, 1.6vw, 1rem);
   margin-left: auto;
+  align-self: stretch;
 }
 
 .hram-header__title-blessing {
@@ -2186,8 +2193,12 @@ a:active {
 
   .hram-header__socials--desktop {
     display: flex;
-    gap: clamp(0.5rem, 1.2vw, 0.9rem);
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: clamp(0.55rem, 1.4vw, 1rem);
     margin-left: auto;
+    align-self: stretch;
   }
 
   .hram-header__nav {
@@ -2234,7 +2245,7 @@ a:active {
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #222222;
+    color: #2d1b10;
     text-decoration: none;
     transition: color 0.2s ease;
   }
