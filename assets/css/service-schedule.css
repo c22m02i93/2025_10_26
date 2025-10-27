@@ -14,7 +14,7 @@
 }
 
 .service-schedule__inner {
-  max-width: 1160px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0 clamp(1rem, 4vw, 2rem);
   position: relative;
