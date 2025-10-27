@@ -50,8 +50,8 @@ defined('ABSPATH') || exit;
               <a href="tel:+78422000000" class="hram-header__social-link" aria-label="Позвонить">
                 <i class="fa-solid fa-phone" aria-hidden="true"></i>
               </a>
-              <a href="mailto:info@nevsky-simbirsk.ru" class="hram-header__social-link" aria-label="Email">
-                <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+              <a href="https://wa.me/78422000000" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Мессенджер">
+                <i class="fa-solid fa-comments" aria-hidden="true"></i>
               </a>
             </div>
           </div>
@@ -103,8 +103,8 @@ defined('ABSPATH') || exit;
             <a href="tel:+78422000000" class="hram-header__social-link" aria-label="Позвонить">
               <i class="fa-solid fa-phone" aria-hidden="true"></i>
             </a>
-            <a href="mailto:info@nevsky-simbirsk.ru" class="hram-header__social-link" aria-label="Email">
-              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            <a href="https://wa.me/78422000000" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Мессенджер">
+              <i class="fa-solid fa-comments" aria-hidden="true"></i>
             </a>
           </div>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="<?= esc_attr__('Закрыть', 'bootscore'); ?>"></button>
