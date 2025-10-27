@@ -1909,52 +1909,60 @@ a:active {
     display: flex;
   }
 
-  .hram-header__nav {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: clamp(0.35rem, 1vw, 0.75rem);
-    padding: 0 clamp(1.25rem, 3.2vw, 2rem);
-    box-sizing: border-box;
-  }
+.hram-header__nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: clamp(0.35rem, 1vw, 0.75rem);
+  padding: 0 clamp(1.25rem, 3.2vw, 2rem);
+  box-sizing: border-box;
+}
 
-  .hram-header__menu-list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: clamp(1rem, 2.5vw, 2rem);
-    margin: 0 auto;
-    padding: clamp(0.85rem, 1.8vw, 1.2rem) clamp(1.5rem, 3.2vw, 2.75rem);
-    list-style: none;
-    width: min(100%, var(--hram-header-max-width));
-    background: #1b120a;
-    border-radius: clamp(0.85rem, 1.6vw, 1.35rem);
-    box-shadow: 0 18px 36px rgba(17, 10, 6, 0.25);
-  }
+.hram-header__nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(0.85rem, 2vw, 1.5rem);
+  width: min(100%, var(--hram-header-max-width));
+  margin: 0 auto;
+}
 
-  .hram-header__menu-list > li {
-    list-style: none;
-  }
+.hram-header__menu-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  gap: clamp(0.85rem, 2vw, 1.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-width: 0;
+  margin-right: auto;
+}
 
-  .hram-header__menu-list > li > a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    font-size: clamp(0.82rem, 0.95vw, 0.98rem);
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
+.hram-header__menu-list > li {
+  list-style: none;
+}
 
-  .hram-header__menu-list > li > a:hover,
-  .hram-header__menu-list > li > a:focus-visible {
-    color: #f7d6a3;
-    outline: none;
-  }
+.hram-header__menu-list > li > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: clamp(0.82rem, 0.95vw, 0.98rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #222222;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.hram-header__menu-list > li > a:hover,
+.hram-header__menu-list > li > a:focus-visible {
+  color: #4b301a;
+  outline: none;
+}
 
   .hram-header__toggler {
     display: none;
@@ -1967,7 +1975,7 @@ a:active {
   }
 
   .hram-header__brand {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     gap: clamp(0.5rem, 4vw, 0.85rem);
   }
 
@@ -1976,6 +1984,7 @@ a:active {
   }
 
   .hram-header__top {
+    align-items: center;
     padding: clamp(0.55rem, 4vw, 0.85rem) clamp(0.85rem, 5vw, 1.25rem);
     justify-content: space-between;
     background: rgba(12, 10, 8, 0.7);
@@ -1986,7 +1995,10 @@ a:active {
   }
 
   .hram-header__actions {
+    display: flex;
+    align-items: center;
     gap: clamp(0.5rem, 4vw, 0.85rem);
+    flex: 0 0 auto;
   }
 
   .hram-header__social-link {
@@ -2105,6 +2117,7 @@ a:active {
   display: none;
   align-items: center;
   gap: clamp(0.55rem, 1.6vw, 1rem);
+  margin-left: auto;
 }
 
 .hram-header__title-blessing {
@@ -2163,6 +2176,7 @@ a:active {
   .hram-header__socials--desktop {
     display: flex;
     gap: clamp(0.5rem, 1.2vw, 0.9rem);
+    margin-left: auto;
   }
 
   .hram-header__nav {
@@ -2174,19 +2188,27 @@ a:active {
     box-sizing: border-box;
   }
 
+  .hram-header__nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(0.85rem, 1.8vw, 1.35rem);
+    width: min(100%, var(--hram-header-max-width));
+    margin: 0 auto;
+  }
+
   .hram-header__menu-list {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    flex: 1 1 auto;
     flex-wrap: wrap;
     gap: clamp(0.85rem, 1.8vw, 1.5rem);
     margin: 0;
     padding: 0;
     list-style: none;
-    width: min(100%, var(--hram-header-max-width));
-    background: transparent;
-    border-radius: 0;
-    box-shadow: none;
+    min-width: 0;
+    margin-right: auto;
   }
 
   .hram-header__menu-list > li {
@@ -2201,7 +2223,7 @@ a:active {
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #1f1f1f;
+    color: #222222;
     text-decoration: none;
     transition: color 0.2s ease;
   }
