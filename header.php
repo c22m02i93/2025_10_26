@@ -25,42 +25,61 @@ defined('ABSPATH') || exit;
 
   <a class="skip-link visually-hidden-focusable" href="#primary"><?php esc_html_e('Skip to content', 'bootscore'); ?></a>
 
-  <header id="masthead" class="site-header hram-header">
+  <?php
+  $header_classes = array('site-header', 'hram-header');
+
+  if (is_front_page()) {
+    $header_classes[] = 'hram-header--home';
+  }
+  ?>
+
+  <header id="masthead" class="<?= esc_attr(implode(' ', array_map('sanitize_html_class', $header_classes))); ?>">
 
     <!-- Благословение -->
-    <div class="hram-header__blessing text-center py-2">
-      <span><?= esc_html__('По благословению Высокопреосвященнейшего Лонгина, митрополита Симбирского и Новоспасского', 'bootscore'); ?></span>
+    <div class="hram-header__blessing">
+      <div class="hram-header__blessing-inner">
+        <span><?= esc_html__('По благословению Высокопреосвященнейшего Лонгина митрополита Симбирского и Новоспасского', 'bootscore'); ?></span>
+      </div>
     </div>
 
     <!-- Основная панель -->
-    <div class="hram-header__main container-fluid px-3 px-lg-5 py-3 d-flex align-items-center flex-wrap justify-content-between">
+    <div class="hram-header__main">
+      <div class="hram-header__main-inner">
 
-      <!-- Логотип -->
-      <div class="hram-header__logo d-flex align-items-center">
-        <?php get_template_part('template-parts/logo', null, array('class' => 'hram-header__identity-link')); ?>
-      </div>
+        <div class="hram-header__identity">
+          <?php get_template_part('template-parts/logo', null, array('class' => 'hram-header__identity-link')); ?>
 
-      <!-- Название храма -->
-      <div class="hram-header__identity-text flex-grow-1 ps-lg-4 text-center text-lg-start">
-        <div class="hram-header__identity-heading">
-          <div class="fw-bold h5 mb-0"><?= esc_html__('ХРАМ ВО ИМЯ СВЯТОГО ПРЕПОДОБНОГО ВЕЛИКОГО КНЯЗЯ', 'bootscore'); ?></div>
-          <div class="fw-bold h4 text-uppercase mb-0"><?= esc_html__('АЛЕКСАНДРА НЕВСКОГО', 'bootscore'); ?></div>
+          <div class="hram-header__identity-text">
+            <div class="hram-header__identity-heading">
+              <span><?= esc_html__('ХРАМ ВО ИМЯ СВЯТОГО ПРЕПОДОБНОГО ВЕЛИКОГО КНЯЗЯ', 'bootscore'); ?></span>
+              <span><?= esc_html__('АЛЕКСАНДРА НЕВСКОГО', 'bootscore'); ?></span>
+            </div>
+            <div class="hram-header__identity-line hram-header__identity-line--accent">
+              <?= esc_html__('СИМБИРСКАЯ ЕПАРХИЯ РУССКОЙ ПРАВОСЛАВНОЙ ЦЕРКВИ', 'bootscore'); ?>
+            </div>
+          </div>
         </div>
-        <div class="hram-header__identity-line hram-header__identity-line--accent small text-muted">
-          <?= esc_html__('СИМБИРСКАЯ ЕПАРХИЯ РУССКОЙ ПРАВОСЛАВНОЙ ЦЕРКВИ', 'bootscore'); ?>
+
+        <div class="hram-header__contacts" role="navigation" aria-label="<?= esc_attr__('Социальные сети и контакты', 'bootscore'); ?>">
+          <?php
+          hram_social_links(
+            array(
+              'container'  => false,
+              'link_class' => 'hram-header__contact'
+            )
+          );
+          ?>
         </div>
       </div>
-
     </div>
 
-    <!-- Соцсети и контакты -->
-    <div class="hram-header__contacts container-fluid px-3 px-lg-5 pb-3 d-flex align-items-center gap-3 flex-wrap justify-content-start">
-      <?php hram_social_links(array('container' => false)); ?>
-      <a href="tel:+78422000000" class="hram-header__contact hram-header__contact--phone d-flex align-items-center text-decoration-none">
-        <i class="fa-solid fa-phone me-2" aria-hidden="true"></i>
-        <span>+7 (8422) 00-00-00</span>
-      </a>
-    </div>
+    <?php if (has_nav_menu('main-menu')) : ?>
+      <nav class="hram-header__nav-bar" aria-label="<?= esc_attr__('Основное меню', 'bootscore'); ?>">
+        <div class="hram-header__nav-bar-inner">
+          <?php get_template_part('template-parts/header/main-menu'); ?>
+        </div>
+      </nav>
+    <?php endif; ?>
 
   </header><!-- #masthead -->
 

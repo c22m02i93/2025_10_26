@@ -1390,3 +1390,231 @@ a:active {
     padding-inline: clamp(0.75rem, 6vw, 1.25rem);
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/*  Header layout refinements                                                 */
+/* -------------------------------------------------------------------------- */
+.hram-header {
+  color: #3b2715;
+
+  &__blessing {
+    background: none;
+    backdrop-filter: none;
+  }
+
+  &__blessing-inner {
+    width: min(100%, 1480px);
+    margin: 0 auto;
+    padding: clamp(0.55rem, 1.8vw, 0.85rem) clamp(1.25rem, 4vw, 2.75rem);
+    text-align: center;
+  }
+
+  &__blessing-inner span {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    font-size: clamp(0.62rem, 1.5vw, 0.85rem);
+    color: inherit;
+  }
+
+  &__main {
+    padding: 0 clamp(0.75rem, 3vw, 2.5rem);
+  }
+
+  &__main-inner {
+    width: min(100%, 1480px);
+    margin: 0 auto;
+    padding: clamp(1.1rem, 3.6vw, 1.85rem) clamp(1.25rem, 4.2vw, 3.25rem);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(1rem, 2.4vw, 2.25rem);
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(18px);
+    border-radius: clamp(1.5rem, 3vw, 2.5rem);
+    border: 1px solid rgba(59, 39, 21, 0.12);
+    box-shadow: 0 22px 54px rgba(36, 24, 15, 0.18);
+  }
+
+  &__identity {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2.6vw, 1.75rem);
+    flex: 1 1 24rem;
+    min-width: 0;
+  }
+
+  &__identity-link {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__identity-link img {
+    height: clamp(72px, 10vw, 108px);
+    width: auto;
+  }
+
+  &__identity-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(0.35rem, 1vw, 0.65rem);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1.25;
+  }
+
+  &__identity-heading {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.1rem, 0.4vw, 0.25rem);
+    font-weight: 700;
+    font-size: clamp(1rem, 2.4vw, 1.62rem);
+    margin: 0;
+  }
+
+  &__identity-heading span {
+    display: block;
+  }
+
+  &__identity-line {
+    font-weight: 600;
+    font-size: clamp(0.7rem, 1.5vw, 0.95rem);
+    color: rgba(59, 39, 21, 0.72);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  &__identity-line--accent {
+    color: rgba(59, 39, 21, 0.64);
+  }
+
+  &__contacts {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(0.5rem, 1.6vw, 0.9rem);
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    min-width: max-content;
+  }
+
+  &__nav-bar {
+    padding: 0 clamp(0.75rem, 3vw, 2.5rem);
+    background: transparent;
+  }
+
+  &__nav-bar-inner {
+    width: min(100%, 1480px);
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(18px);
+    border-radius: clamp(1rem, 2vw, 1.75rem);
+    border: 1px solid rgba(59, 39, 21, 0.12);
+    box-shadow: 0 16px 40px rgba(36, 24, 15, 0.14);
+  }
+}
+
+.hram-header__nav-bar-inner .navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 2.2vw, 1.75rem);
+  margin: 0 !important;
+  padding: clamp(0.65rem, 1.8vw, 0.95rem) 0;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.hram-header__nav-bar-inner .navbar-nav.ms-auto {
+  margin-left: 0 !important;
+}
+
+.hram-header__nav-bar-inner .navbar-nav > li {
+  list-style: none;
+}
+
+.hram-header__nav-bar-inner .navbar-nav > li > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #3b2715;
+  text-decoration: none;
+  font-size: clamp(0.78rem, 1vw, 0.95rem);
+  transition: color 0.2s ease;
+}
+
+.hram-header__nav-bar-inner .navbar-nav > li > a:hover,
+.hram-header__nav-bar-inner .navbar-nav > li > a:focus-visible {
+  color: #a66f2a;
+  outline: none;
+}
+
+.hram-header__contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(132, 101, 63, 0.3);
+  color: #3b2715;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.hram-header__contact:hover,
+.hram-header__contact:focus-visible {
+  background: #3b2715;
+  color: #ffffff;
+  border-color: #3b2715;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+@media (max-width: 1199.98px) {
+  .hram-header__contacts {
+    gap: clamp(0.45rem, 2vw, 0.75rem);
+  }
+}
+
+@media (max-width: 991.98px) {
+  .hram-header__main-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: clamp(1rem, 5vw, 1.75rem);
+  }
+
+  .hram-header__identity {
+    justify-content: center;
+  }
+
+  .hram-header__identity-text {
+    align-items: center;
+  }
+
+  .hram-header__contacts {
+    justify-content: center;
+  }
+
+  .hram-header__nav-bar-inner .navbar-nav {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hram-header__contact {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+}
