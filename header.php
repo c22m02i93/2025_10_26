@@ -22,17 +22,25 @@ defined('ABSPATH') || exit;
 
   <a class="skip-link visually-hidden-focusable" href="#primary"><?php esc_html_e('Skip to content', 'bootscore'); ?></a>
 
-  <header id="masthead" class="site-header hram-header">
+  <?php
+  $hram_header_classes = ['site-header', 'hram-header'];
+
+  if (is_front_page()) {
+    $hram_header_classes[] = 'hram-header--home';
+  }
+  ?>
+
+  <header id="masthead" class="<?= esc_attr(implode(' ', $hram_header_classes)); ?>">
 
     <div class="hram-header__glass">
       <div class="hram-header__container">
         <div class="hram-header__top">
           <a class="hram-header__logo" href="<?= esc_url(home_url()); ?>">
-            <img src="<?= esc_url('http://nevsky-simbirsk.ru/wp-content/uploads/2025/10/hapka-1.svg'); ?>" alt="<?php bloginfo('name'); ?> Logo" loading="lazy">
+            <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/logo.svg'); ?>" alt="<?php bloginfo('name'); ?> Logo" loading="lazy">
           </a>
 
           <div class="hram-header__title-group">
-            <span class="hram-header__title-blessing">ПО БЛАГОСЛОВЕНИЮ ВЫСОКОПРЕОСВЯЩЕННЕЙШЕГО ЛОНГИНА, МИТРОПОЛИТА СИМБИРСКОГО И НОВОСПАССКОГО</span>
+            <span class="hram-header__title-blessing">ПО БЛАГОСЛОВЕНИЮ ВЫСОКОПРЕОСВЯЩЕННЕЙШЕГО ЛОНГИНА МИТРОПОЛИТА СИМБИРСКОГО И НОВОСПАССКОГО</span>
             <span class="hram-header__title">ХРАМ ВО ИМЯ СВЯТОГО БЛАГОВЕРНОГО ВЕЛИКОГО КНЯЗЯ АЛЕКСАНДРА НЕВСКОГО</span>
             <span class="hram-header__subtitle">Симбирская Епархия Русской Православной Церкви</span>
           </div>
