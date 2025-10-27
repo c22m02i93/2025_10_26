@@ -164,6 +164,36 @@ $slider_has_loop = count($slider_slides) > 1;
           <?php endif; ?>
 
           <?php
+          $feature_links = [
+            [
+              'title' => __('Социальное служение', 'bootscore'),
+              'url'   => 'https://nevsky-simbirsk.ru/pomoshh/',
+            ],
+            [
+              'title' => __('Молодежный клуб', 'bootscore'),
+              'url'   => 'https://nevsky-simbirsk.ru/molodezhnyi-klub/',
+            ],
+            [
+              'title' => __('Воскресная школа', 'bootscore'),
+              'url'   => 'https://nevsky-simbirsk.ru/obrazovanie-i-prosveshhenie/',
+            ],
+          ];
+          ?>
+
+          <?php if (!empty($feature_links)) : ?>
+            <section class="front-feature-links" aria-label="<?= esc_attr__('Основные направления прихода', 'bootscore'); ?>">
+              <?php foreach ($feature_links as $feature_link) : ?>
+                <a
+                  class="front-feature-links__item"
+                  href="<?= esc_url($feature_link['url']); ?>"
+                >
+                  <span class="front-feature-links__label"><?= esc_html($feature_link['title']); ?></span>
+                </a>
+              <?php endforeach; ?>
+            </section>
+          <?php endif; ?>
+
+          <?php
           $service_schedule_block = hram_service_schedule_shortcode([
             'limit' => 5,
           ]);
