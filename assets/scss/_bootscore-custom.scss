@@ -833,10 +833,10 @@ a:active {
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     grid-template-areas:
-      "news announcements"
-      "news calendar";
+      "news sidebar"
+      "news sidebar";
     gap: clamp(1.75rem, 4vw, 2.5rem);
-    align-items: start;
+    align-items: stretch;
   }
 
   &__news {
@@ -846,15 +846,23 @@ a:active {
     gap: clamp(1.25rem, 3.5vw, 1.75rem);
   }
 
+  &__sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.75rem, 4vw, 2.5rem);
+    align-self: stretch;
+    height: 100%;
+    min-height: 0;
+  }
+
   &__announcements {
-    grid-area: announcements;
     display: flex;
     flex-direction: column;
     gap: clamp(1rem, 3vw, 1.5rem);
   }
 
   &__calendar {
-    grid-area: calendar;
     background: rgba(248, 237, 218, 0.85);
     border: 1px solid rgba(201, 150, 90, 0.45);
     border-radius: 20px;
@@ -862,18 +870,22 @@ a:active {
     box-shadow: 0 18px 40px rgba(49, 30, 18, 0.1);
     align-self: stretch;
     display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
   }
 
   &--no-announcements {
     .front-updates__grid {
+      grid-template-columns: minmax(0, 1fr);
       grid-template-areas:
-        "news news"
-        "calendar calendar";
+        "news"
+        "sidebar";
     }
 
-    .front-updates__calendar {
+    .front-updates__sidebar {
       max-width: 640px;
       justify-self: center;
+      width: 100%;
     }
   }
 
@@ -881,13 +893,13 @@ a:active {
     .front-updates__grid {
       grid-template-columns: minmax(0, 1fr);
       grid-template-areas:
-        "announcements"
-        "calendar";
+        "sidebar";
     }
 
-    .front-updates__announcements {
+    .front-updates__sidebar {
       max-width: 640px;
       justify-self: center;
+      width: 100%;
     }
   }
 }
@@ -1174,36 +1186,14 @@ a:active {
   .front-updates__grid {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "announcements"
       "news"
-      "calendar";
+      "sidebar";
   }
 
-  .front-updates__announcements,
-  .front-updates__calendar {
+  .front-updates__sidebar {
     max-width: 640px;
     justify-self: center;
     width: 100%;
-  }
-
-  .front-updates--no-announcements {
-    .front-updates__grid {
-      grid-template-areas:
-        "news"
-        "calendar";
-    }
-
-    .front-updates__calendar {
-      max-width: 100%;
-    }
-  }
-
-  .front-updates--no-news {
-    .front-updates__grid {
-      grid-template-areas:
-        "announcements"
-        "calendar";
-    }
   }
 
   .front-news-card {
