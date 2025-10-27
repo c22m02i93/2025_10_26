@@ -24,89 +24,62 @@ defined('ABSPATH') || exit;
 
   <header id="masthead" class="site-header hram-header">
 
-    <div class="hram-header__blessing">
-      <span>по благословению митрополита Симбирского и Новоспасского Лонгина</span>
-    </div>
-
-    <!-- Мобильная панель -->
-    <div class="hram-header__mobile-bar container-fluid px-3 d-lg-none">
-      <a class="hram-header__mobile-logo" href="<?= esc_url(home_url()); ?>">
-        <img src="<?= esc_url('http://nevsky-simbirsk.ru/wp-content/uploads/2025/10/hapka-1.svg'); ?>" alt="<?php bloginfo('name'); ?> Logo" loading="lazy">
-      </a>
-      <button class="hram-header__toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="Меню">
-        <span class="hram-header__toggler-line"></span>
-        <span class="hram-header__toggler-line"></span>
-        <span class="hram-header__toggler-line"></span>
-      </button>
-    </div>
-
-    <!-- Основная панель -->
-    <div class="hram-header__main container-fluid px-3 px-lg-5 d-none d-lg-flex">
-      <div class="hram-header__identity">
-        <a class="hram-header__identity-link" href="<?= esc_url(home_url()); ?>">
-          <img src="<?= esc_url('http://nevsky-simbirsk.ru/wp-content/uploads/2025/10/hapka-1.svg'); ?>" alt="<?php bloginfo('name'); ?> Logo" loading="lazy">
-        </a>
-      </div>
-
-      <div class="hram-header__contacts">
-        <a href="https://vk.com" class="hram-header__contact" target="_blank" rel="noopener" aria-label="ВКонтакте">
-          <i class="fa-brands fa-vk" aria-hidden="true"></i>
-        </a>
-        <a href="https://t.me" class="hram-header__contact" target="_blank" rel="noopener" aria-label="Telegram">
-          <i class="fa-brands fa-telegram-plane" aria-hidden="true"></i>
-        </a>
-        <a href="mailto:info@nevsky-simbirsk.ru" class="hram-header__contact" aria-label="Email">
-          <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-        </a>
-        <a href="tel:+78422000000" class="hram-header__contact hram-header__contact--phone" aria-label="Позвонить">
-          <i class="fa-solid fa-phone" aria-hidden="true"></i>
-          <span>+7 (8422) 00-00-00</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Разделительная линия -->
-    <div class="hram-header__divider container-fluid px-3 px-lg-5">
-      <div class="hram-header__divider-line"></div>
-    </div>
-
-    <!-- Меню -->
-    <div class="hram-header__menu container-fluid px-3 px-lg-5 d-none d-lg-flex">
-      <?php
-      wp_nav_menu(array(
-        'theme_location' => 'main-menu',
-        'container'      => false,
-        'menu_class'     => 'hram-header__menu-list',
-        'fallback_cb'    => '__return_false',
-        'depth'          => 2,
-        'walker'         => new bootstrap_5_wp_nav_menu_walker(),
-      ));
-      ?>
-    </div>
-
-    <!-- Offcanvas меню -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-navbar">
-      <div class="offcanvas-header">
-        <span class="h5 offcanvas-title"><?= __('Меню', 'bootscore'); ?></span>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
-      </div>
-      <div class="offcanvas-body">
-        <div class="hram-header__offcanvas-contacts d-lg-none">
-          <a href="https://vk.com" class="hram-header__contact" target="_blank" rel="noopener">
-            <i class="fa-brands fa-vk" aria-hidden="true"></i>
+    <div class="hram-header__glass">
+      <div class="hram-header__container">
+        <div class="hram-header__top">
+          <a class="hram-header__logo" href="<?= esc_url(home_url()); ?>">
+            <img src="<?= esc_url('http://nevsky-simbirsk.ru/wp-content/uploads/2025/10/hapka-1.svg'); ?>" alt="<?php bloginfo('name'); ?> Logo" loading="lazy">
           </a>
-          <a href="https://t.me" class="hram-header__contact" target="_blank" rel="noopener">
-            <i class="fa-brands fa-telegram-plane" aria-hidden="true"></i>
-          </a>
-          <a href="mailto:info@nevsky-simbirsk.ru" class="hram-header__contact">
-            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-          </a>
-          <a href="tel:+78422000000" class="hram-header__contact hram-header__contact--phone">
-            <i class="fa-solid fa-phone" aria-hidden="true"></i>
-            <span>+7 (8422) 00-00-00</span>
-          </a>
+
+          <div class="hram-header__title-group">
+            <span class="hram-header__title-blessing">ПО БЛАГОСЛОВЕНИЮ ВЫСОКОПРЕОСВЯЩЕННЕЙШЕГО ЛОНГИНА, МИТРОПОЛИТА СИМБИРСКОГО И НОВОСПАССКОГО</span>
+            <span class="hram-header__title">ХРАМ ВО ИМЯ СВЯТОГО БЛАГОВЕРНОГО ВЕЛИКОГО КНЯЗЯ АЛЕКСАНДРА НЕВСКОГО</span>
+            <span class="hram-header__subtitle">Симбирская Епархия Русской Православной Церкви</span>
+          </div>
+
+          <div class="hram-header__socials">
+            <a href="https://vk.com" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="ВКонтакте">
+              <i class="fa-brands fa-vk" aria-hidden="true"></i>
+            </a>
+            <a href="https://t.me" class="hram-header__social-link" target="_blank" rel="noopener" aria-label="Telegram">
+              <i class="fa-brands fa-telegram-plane" aria-hidden="true"></i>
+            </a>
+            <a href="tel:+78422000000" class="hram-header__social-link" aria-label="Позвонить">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:info@nevsky-simbirsk.ru" class="hram-header__social-link" aria-label="Email">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <button class="hram-header__toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="Меню">
+            <span class="hram-header__toggler-line"></span>
+            <span class="hram-header__toggler-line"></span>
+            <span class="hram-header__toggler-line"></span>
+          </button>
         </div>
 
+        <nav class="hram-header__nav" aria-label="<?= esc_attr__('Основное меню', 'bootscore'); ?>">
+          <?php
+          wp_nav_menu(array(
+            'theme_location' => 'main-menu',
+            'container'      => false,
+            'menu_class'     => 'hram-header__menu-list',
+            'fallback_cb'    => '__return_false',
+            'depth'          => 2,
+            'walker'         => new bootstrap_5_wp_nav_menu_walker(),
+          ));
+          ?>
+        </nav>
+      </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start hram-header__offcanvas" tabindex="-1" id="offcanvas-navbar">
+      <div class="offcanvas-header">
+        <span class="h5 offcanvas-title"><?= __('Меню', 'bootscore'); ?></span>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="<?= esc_attr__('Закрыть', 'bootscore'); ?>"></button>
+      </div>
+      <div class="offcanvas-body">
         <?php get_template_part('template-parts/header/main-menu'); ?>
       </div>
     </div>
