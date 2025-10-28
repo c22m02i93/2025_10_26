@@ -39,6 +39,8 @@ $slider_query = new WP_Query($slider_query_args);
 
       <?php do_action('bootscore_after_primary_open', 'category'); ?>
 
+      <?php the_breadcrumb(); ?>
+
       <main id="main" class="site-main rubric-page">
         <header class="rubric-page__header">
           <h1 class="rubric-page__title"><?= esc_html($category_title); ?></h1>
@@ -49,20 +51,6 @@ $slider_query = new WP_Query($slider_query_args);
         </header>
 
         <div class="rubric-page__layout">
-          <aside class="rubric-page__sidebar">
-            <?php if ($slider_query->have_posts()) : ?>
-              <?php
-              get_template_part('template-parts/components/news-slider', null, [
-                'query'    => $slider_query,
-                'modifier' => 'rubric',
-                'autoplay' => 5000,
-              ]);
-
-              wp_reset_postdata();
-              ?>
-            <?php endif; ?>
-          </aside>
-
           <div class="rubric-page__posts">
             <?php if (have_posts()) : ?>
               <div class="rubric-page__posts-grid">
@@ -149,6 +137,21 @@ $slider_query = new WP_Query($slider_query_args);
               </div>
             <?php endif; ?>
           </div>
+
+          <?php if ($slider_query->have_posts()) : ?>
+            <aside class="rubric-page__sidebar">
+              <?php
+              $slider_query->rewind_posts();
+              get_template_part('template-parts/components/news-slider', null, [
+                'query'    => $slider_query,
+                'modifier' => 'rubric',
+                'autoplay' => 5000,
+              ]);
+
+              wp_reset_postdata();
+              ?>
+            </aside>
+          <?php endif; ?>
         </div>
       </main>
     </div>
