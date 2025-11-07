@@ -198,23 +198,16 @@ $slider_has_loop = count($slider_slides) > 1;
             'ignore_sticky_posts' => true,
           ]);
 
-          $news_query = new WP_Query([
-            'post_type'           => 'post',
-            'posts_per_page'      => 4,
-            'category_name'       => 'novosti',
-            'no_found_rows'       => true,
-            'ignore_sticky_posts' => true,
+          $news_items = bootscore_remote_get_frontpage_news([
+            'max_items'    => 4,
+            'remote_limit' => 24,
           ]);
 
           $has_announcements = $announcements_query->have_posts();
-          $has_news          = $news_query->have_posts();
+          $has_news          = !empty($news_items);
 
           if ($has_announcements) {
             $announcements_query->rewind_posts();
-          }
-
-          if ($has_news) {
-            $news_query->rewind_posts();
           }
 
           if ($has_announcements || $has_news) :
@@ -234,66 +227,10 @@ $slider_has_loop = count($slider_slides) > 1;
               <div class="front-updates__grid">
                 <?php if ($has_news) : ?>
                   <div class="front-updates__news">
-                    <?php
-                    while ($news_query->have_posts()) :
-                      $news_query->the_post();
-
-                      $news_excerpt = trim(get_the_excerpt());
-                      $news_excerpt = $news_excerpt ? wp_trim_words($news_excerpt, 32, '…') : '';
-                      $views        = (int) get_post_meta(get_the_ID(), 'post_views_count', true);
-                      ?>
-                      <article <?php post_class('front-news-card'); ?>>
-                        <a class="front-news-card__media" href="<?= esc_url(get_permalink()); ?>">
-                          <?php if (has_post_thumbnail()) : ?>
-                            <?= wp_get_attachment_image(get_post_thumbnail_id(), 'medium_large', false, [
-                              'class'   => 'front-news-card__image',
-                              'loading' => 'lazy',
-                            ]); ?>
-                          <?php else : ?>
-                            <span class="front-news-card__placeholder" aria-hidden="true"></span>
-                          <?php endif; ?>
-                        </a>
-
-                        <div class="front-news-card__content">
-                          <?php
-                          $news_categories        = get_the_category();
-                          $news_primary_category = $news_categories ? $news_categories[0] : null;
-
-                          if ($news_primary_category instanceof WP_Term) :
-                            ?>
-                            <div class="front-news-card__category">
-                              <a class="front-news-card__category-link" href="<?= esc_url(get_category_link($news_primary_category->term_id)); ?>">
-                                <?= esc_html($news_primary_category->name); ?>
-                              </a>
-                            </div>
-                          <?php endif; ?>
-
-                          <h3 class="front-news-card__title">
-                            <a class="front-news-card__link" href="<?= esc_url(get_permalink()); ?>">
-                              <?= esc_html(get_the_title()); ?>
-                            </a>
-                          </h3>
-
-                          <?php if (!empty($news_excerpt)) : ?>
-                            <p class="front-news-card__excerpt"><?= esc_html($news_excerpt); ?></p>
-                          <?php endif; ?>
-
-                          <div class="front-news-card__meta">
-                            <span class="front-news-card__meta-item">
-                              <i class="fa-regular fa-calendar" aria-hidden="true"></i>
-                              <time datetime="<?= esc_attr(get_the_date('c')); ?>"><?= esc_html(get_the_date('d.m.Y')); ?></time>
-                            </span>
-
-                            <span class="front-news-card__meta-item">
-                              <i class="fa-regular fa-eye" aria-hidden="true"></i>
-                              <span><?= esc_html(number_format_i18n(max($views, 0))); ?></span>
-                            </span>
-                          </div>
-                        </div>
-                      </article>
-                    <?php endwhile; ?>
+                    <?php foreach ($news_items as $news_item) : ?>
+                      <?= bootscore_render_news_card($news_item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                    <?php endforeach; ?>
                   </div>
-                  <?php wp_reset_postdata(); ?>
                 <?php endif; ?>
 
                 <div class="front-updates__sidebar">

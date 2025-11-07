@@ -53,6 +53,7 @@ require_once('inc/widgets.php');                 // Register widget area and dis
 require_once('inc/deprecated.php');              // Fallback functions being dropped in v6
 require_once('inc/tinymce-editor.php');          // Fix body margin and font-family in backend if classic editor is used
 require_once('inc/custom-post-types.php');       // Custom post types and meta fields
+require_once('inc/remote-parsers.php');          // Remote content parsers
 // Blocks
 // Patterns
 require_once('inc/blocks/patterns.php');  // Register pattern category and script to hide wp-block classes
